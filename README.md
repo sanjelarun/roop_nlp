@@ -8,6 +8,7 @@ The `roop_nlp` project aims to convert given Python code into PySpark code using
 ```
 roop_nlp/
 |-- src/
+|--|--data_models    # stores the data structure related to code translation like lopp information and dataset information
 |   |-- extraction/      # Contains code related to extraction of loops from Python code
 |   |-- nlp/             # Contains the NLP model and related code to convert loops to PySpark
 |   |-- refactoring/     # Code related to refactoring the original Python code with PySpark equivalents
