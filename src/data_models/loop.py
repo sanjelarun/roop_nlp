@@ -10,12 +10,12 @@ class Loop:
         
         self.input_datasets = []  # Datasets read in the loop
         self.result_datasets = []  # Datasets written to in the loop
-        self.operations = []  # List of operations inside the loop
+        self.operations = []  # List of Operation objects inside the loop
         self.refactored_code = None  # Refactored PySpark code
         
         self.oracle_prediction = None  # Prediction from Oracle NLP
         self.loop_iterator = None  # Iterator used in the loop (e.g., 'i' in 'for i in data:')
-        self.loop_condition = None  # Condition inside the loop if any
+        self.conditions = []  # List of conditions (Operation objects) inside the loop
         
         self.parent_loop = None  # If this is a nested loop, pointer to the parent loop
         self.child_loops = []  # If this loop contains nested loops
@@ -47,3 +47,6 @@ class Loop:
     def __repr__(self):
         """Returns a string representation of the Loop object."""
         return f"Loop(ID={self.loop_id}, Status={self.status}, StartLine={self.start_line}, EndLine={self.end_line})"
+
+# Representation of Loop class
+Loop

@@ -40,13 +40,13 @@ def print_extraction_results(results: dict):
             print(f"Result Datasets: {', '.join(loop.result_datasets)}")
             print(f"Operations:")
             for op in loop.operations:
-                print(f"  - {op}")
+                print(f"  - Variables: {op.variables}, Operation: {op.operation_str}")
             
             # Print conditions, if any
-            if hasattr(loop, "conditions") and loop.conditions:
+            if loop.conditions:
                 print(f"Conditions:")
-                for cond in loop.conditions:
-                    print(f"  - {cond}")
+                for var_name, cond in loop.conditions.items():
+                    print(f"  - Variables: {var_name}, Condition: {cond}")
             print()
         print("=" * 50)
         print()
@@ -54,4 +54,4 @@ def print_extraction_results(results: dict):
 
 
 file_paths = ["simple_loop.py","loop_with_conditions.py","mutliple_loop.py","nested_loop.py"]
-print_extraction_results(test_extraction_from_file(file_paths))
+print_extraction_results(test_extraction_from_file([file_paths[1]]))

@@ -1,46 +1,94 @@
 import ast
+import astor
 from data_models.loop import Loop
+from data_models.operations import Operation
+import keyword
+import tokenize
+import io
+import builtins
+
+def extract_variables_from_node(node):
+    """Recursively retrieve variable names from an AST node."""
+    if isinstance(node, ast.Name):
+        return [node.id]
+    elif isinstance(node, (ast.BinOp, ast.BoolOp)):
+        return extract_variables_from_node(node.left) + extract_variables_from_node(node.right)
+    elif isinstance(node, ast.UnaryOp):
+        return extract_variables_from_node(node.operand)
+    elif isinstance(node, ast.Call):
+        args_vars = [extract_variables_from_node(arg) for arg in node.args]
+        return sum(args_vars, [])
+    else:
+        return []
 
 
-def extract_operations(node, code):
-    """Extracts operations (expressions/assignments) from a given AST node."""
-    operations = []
-    
-    # Extracting assignment operations
-    for n in ast.walk(node):
+
+
+
+
+
+def extract_variable_names_from_operation(op_str):
+    """Extract variable names from a given operation string."""
+    tokens = tokenize.tokenize(io.BytesIO(op_str.encode('utf-8')).readline)
+    return [
+        token.string for token in tokens 
+        if token.type == tokenize.NAME 
+        and not keyword.iskeyword(token.string) 
+        and token.string not in dir(builtins)
+    ]
+def extract_operations(operation_nodes, code):
+    """Extracts operations from a list of AST nodes."""
+    operations_list = []
+
+    for n in operation_nodes:
+        # Assignments (e.g., result = num * 5)
         if isinstance(n, ast.Assign):
             for target in n.targets:
-                left = ast.get_source_segment(code, target)
-                right = ast.get_source_segment(code, n.value)
-                if left and right:
-                    op_code = left + " = " + right
-                    operations.append(op_code)
-                
-        # Extracting augmented assignments (e.g., a += 1)
+                left_var = ast.get_source_segment(code, target).strip()
+                right_op = ast.get_source_segment(code, n.value).strip()
+                involved_vars = set([left_var] + extract_variables_from_node(n.value))
+                operation = Operation(variables=involved_vars, operation_str=right_op)
+                operations_list.append(operation)
+        # Augmented assignments (e.g., a += 1)
+# Augmented assignments (e.g., a += 1)
         elif isinstance(n, ast.AugAssign):
-            target = n.target
-            op = ast.get_source_segment(code, n.op)
-            value = ast.get_source_segment(code, n.value)
-            if target and op and value:
-                op_code = target + " " + op + " " + value
-                operations.append(op_code)
+            print("Found AugAssign")  # Debug print
+            target_var = ast.get_source_segment(code, n.target).strip()
+            right_op = ast.get_source_segment(code, n.value).strip()
+            
+            # Get the operator directly from the AugAssign node
+            op_map = {
+                ast.Add: '+',
+                ast.Sub: '-',
+                ast.Mult: '*',
+                ast.Div: '/',
+                # ... add other operators as needed
+            }
+            op_segment = op_map.get(type(n.op), None)
+            if not op_segment:
+                print(f"Unsupported operator: {type(n.op)}")  # Debug print
+                continue
+            
+            expanded_op = target_var + " " + op_segment + " " + right_op  # Expand to non-augmented form
+            involved_vars = set([target_var] + extract_variables_from_node(n.value))
+            operation = Operation(variables=involved_vars, operation_str=expanded_op)
+            operations_list.append(operation)
 
-        # Extracting function calls (e.g., append)
-        elif isinstance(n, ast.Call):
-            func_call = ast.get_source_segment(code, n)
-            if func_call:
-                operations.append(func_call)
-        
-        # Extracting arithmetic operations
-        elif isinstance(n, ast.BinOp):
-            left = ast.get_source_segment(code, n.left)
-            right = ast.get_source_segment(code, n.right)
-            op = ast.get_source_segment(code, n.op)
-            if left and right and op:
-                op_code = left + " " + op + " " + right
-                operations.append(op_code)
 
-    return operations
+        # Function calls (e.g., append, extend)
+        elif isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute):
+            # Check if the function is 'append' or 'extend'
+            if n.func.attr in ["append", "extend"]:
+                operation_inside_call = ast.get_source_segment(code, n.args[0]).strip()
+                involved_vars = extract_variable_names_from_operation(operation_inside_call)
+                operation = Operation(variables=involved_vars, operation_str=operation_inside_call)
+                operations_list.append(operation)
+
+
+    return operations_list
+
+
+
 
 def extract_input_datasets(node):
     """Extracts the dataset being iterated over in a for loop, including nested loops, from the given AST node."""
@@ -85,17 +133,23 @@ def extract_result_datasets(node):
                 
     return list(result_datasets)
 
-def extract_conditions(node, code):
-    """Extracts conditions (if statements) from a given AST node."""
-    conditions = []
-    
+
+
+def extract_conditions_with_astor(node):
+    """Extracts conditions (if statements) from a given AST node using astor."""
+    conditions = {}
+   
     for n in ast.walk(node):
         if isinstance(n, ast.If):
-            condition_code = ast.get_source_segment(code, n.test)
-            if condition_code:
-                conditions.append(condition_code)
+            condition_code = astor.to_source(n.test).strip()
+            # Assuming the condition involves a variable (e.g., num % 2 == 0)
+            if " " in condition_code:
+                var_name = condition_code.split(" ")[0][1:]
+                print(var_name)
+                conditions[var_name] = condition_code
                 
     return conditions
+
 
 def extract_loops_from_code_v4(code: str):
     loops = []
@@ -109,8 +163,12 @@ def extract_loops_from_code_v4(code: str):
             
             result_datasets = extract_result_datasets(node)
             input_datasets = extract_input_datasets(node)
-            operations = extract_operations(node, code)
-            conditions = extract_conditions(node, code)
+            
+            # Filtering nodes of interest for operation extraction
+            operation_nodes = [n for n in ast.walk(node) if isinstance(n, (ast.Assign, ast.AugAssign, ast.Call))]
+            
+            operations = extract_operations(operation_nodes, code)
+            conditions = extract_conditions_with_astor(node)
             
             loop_obj = Loop(loop_id=len(loops)+1, 
                             original_code=loop_code, 
