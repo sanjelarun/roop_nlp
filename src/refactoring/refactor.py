@@ -1,7 +1,11 @@
 import sys
-sys.path.append('F:/Papers/IEEE-BigData-2023/roop_nlp/src')
+import os
+sys.path.append('/Users/bikramkhanal/Desktop/Files/Research/Papers/roop_nlp/src')
 
+# from data_models.loop import Loop
 from data_models.loop import Loop
+from extraction.extractors import extract_from_file
+from nlp.prediction import Top5Predictions
 
 def refactor_loop(loop, prediction):
     """Refactor the given loop based on the prediction from ORACLE NLP."""
@@ -56,25 +60,19 @@ def refactor_loop(loop, prediction):
     return None
 
 def test_refactor_loop():
+
     """Test the refactor_loop function."""
-    
-    # Sample loop object
-    loop1 = Loop(1, "for i in nums: results.append(i * 2)", 1, 2)
-    loop1.input_datasets = ["nums"]
-    loop1.operations = ["results.append(i * 100 + 1)"]
-    
-    print( refactor_loop(loop1, "map"))
-    
-    loop2 = Loop(2, "for i in nums: if i >= 5: results.append(i)", 1, 3)
 
-    loop2.input_datasets = ["nums"]
-    loop2.operations = ["results.append(i)"]
-    
-    print(refactor_loop(loop2, "filter"))
+    base_directory = '/Users/bikramkhanal/Desktop/Files/Research/Papers/roop_nlp/src/test'
 
-    
-    # ... more test cases as needed
-
+    file_paths = ["simple_loop.py","loop_with_conditions.py","mutliple_loop.py","nested_loop.py","join-test.py"]
+    extracted_loops = extract_from_file(file_path=os.path.join(base_directory,file_paths[2]))  
+    code_snap = extracted_loops[1].original_code
+    print(f"This is code snap: {code_snap}")
+    top5 = Top5Predictions()
+    top_5_labels = top5.make_prediction(code_snap)
+    top_class = top5.classifier.predict_top_class(code_snap)
+    print(f"Top 5 Predciction {top_5_labels}")
+    print(f"Top Prediction {top_class}")
     print("All tests passed!")
-
 test_refactor_loop()
