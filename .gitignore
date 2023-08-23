@@ -151,6 +151,9 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+nlp/model_100000_07_14.h5
+nlp/model_10000.zip
+.vscode
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
