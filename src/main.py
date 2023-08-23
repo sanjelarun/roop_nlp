@@ -63,7 +63,7 @@ def driver_program(file_path, out_file_path):
         # Step 2: Refactor the code (for demonstration purposes, using predictions ["map", "filter", "reduce"] for all loops)
         predictions = [["filter"], ["map"]]  # Dummy predictions for all loops; will use NLP model later
         predictions = [["join"]] 
-        #predictions = [["reduce"]] 
+        predictions = [["reduce"]] 
         idx = 0
         while idx < len(extracted_loops):
             loop = extracted_loops[idx]
@@ -85,7 +85,7 @@ def driver_program(file_path, out_file_path):
 
 if __name__ == "__main__":
     base_directory = "f:/Papers/IEEE-BigData-2023/roop_nlp/src/test/"
-    file_path = "join-test.py"
+    file_path = "simple_loop.py"
     out_file_path = os.path.join(base_directory, "multiple_loop_pyspark.py")
     in_file_path = os.path.join(base_directory, file_path)
     driver_program(in_file_path, out_file_path)

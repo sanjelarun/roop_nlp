@@ -1,5 +1,7 @@
 from typing import List
 from data_models.loop import Loop
+from itertools import takewhile
+
 
 def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
     """
@@ -25,13 +27,18 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
     while line_num < len(lines):
         if line_num + 1 in loop_mapping:  # Python code is 1-indexed
             loop = loop_mapping[line_num + 1]
-            
-            # Add parallelization code for each input dataset
-            for dataset in loop.input_datasets:
-                refactored_lines.append(f"{dataset}_rdd = sc.parallelize({dataset})")
 
-            # Add refactored code
-            refactored_lines.append(loop.refactored_code)
+            # Extract indentation from the loop's starting line
+            indentation = "".join(takewhile(str.isspace, lines[line_num]))
+            
+            # Add parallelization code for each input dataset with correct indentation
+            for dataset in loop.input_datasets:
+                refactored_lines.append(indentation + f"{dataset}_rdd = sc.parallelize({dataset})")
+
+            # Add refactored code with correct indentation
+            refactored_code_lines = loop.refactored_code.split('\n')
+            for code_line in refactored_code_lines:
+                refactored_lines.append(indentation + code_line)
 
             # Skip the lines corresponding to this loop
             line_num += (loop.end_line - loop.start_line + 1)
