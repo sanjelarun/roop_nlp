@@ -1,8 +1,8 @@
 def map_operation(dataset, operation, result_dataset):
-    return f"{result_dataset}_rdd = {dataset}.map(lambda {operation.variables[0]}: {operation.operation_str})"
+    return f"{result_dataset} = {dataset}.map(lambda {operation.variables[0]}: {operation.operation_str})"
 
 def filter_operation(dataset, condition, result_dataset):
-    return f"{result_dataset}_rdd = {dataset}.filter(lambda {condition.split()[0]}: {condition})"
+    return f"{result_dataset} = {dataset}.filter(lambda {condition.split()[0]}: {condition})"
 
 def reduce_operation(dataset, operation):
     return f"{operation.variables[0]} = {dataset}.reduce(lambda {operation.variables[0]}, {operation.variables[1]}: {operation.operation_str})"
