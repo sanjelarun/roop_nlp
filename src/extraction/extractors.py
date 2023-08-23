@@ -6,6 +6,8 @@ import keyword
 import tokenize
 import io
 import builtins
+from collections import OrderedDict
+
 
 def extract_variables_from_node(node):
     """Recursively retrieve variable names from an AST node."""
@@ -46,7 +48,8 @@ def extract_operations(operation_nodes, code):
             for target in n.targets:
                 left_var = ast.get_source_segment(code, target).strip()
                 right_op = ast.get_source_segment(code, n.value).strip()
-                involved_vars = set([left_var] + extract_variables_from_node(n.value))
+                involved_vars_ordered_dict = OrderedDict.fromkeys([left_var] + extract_variables_from_node(n.value))
+                involved_vars = list(involved_vars_ordered_dict.keys())
                 operation = Operation(variables=involved_vars, operation_str=right_op)
                 operations_list.append(operation)
         # Augmented assignments (e.g., a += 1)
@@ -70,7 +73,8 @@ def extract_operations(operation_nodes, code):
                 continue
             
             expanded_op = target_var + " " + op_segment + " " + right_op  # Expand to non-augmented form
-            involved_vars = set([target_var] + extract_variables_from_node(n.value))
+            involved_vars_ordered_dict = OrderedDict.fromkeys([left_var] + extract_variables_from_node(n.value))
+            involved_vars = list(involved_vars_ordered_dict.keys())
             operation = Operation(variables=involved_vars, operation_str=expanded_op)
             operations_list.append(operation)
 
@@ -145,8 +149,7 @@ def extract_conditions_with_astor(node):
             # Assuming the condition involves a variable (e.g., num % 2 == 0)
             if " " in condition_code:
                 var_name = condition_code.split(" ")[0][1:]
-                print(var_name)
-                conditions[var_name] = condition_code
+                conditions[var_name] = condition_code[1:-1]
                 
     return conditions
 
@@ -193,20 +196,3 @@ def extract_loops_from_code_v4(code: str):
     visitor.visit(parsed_code)
     
     return loops
-
-
-
-
-def extract_from_file(file_path: str):
-    """Extracts for loops from a given Python file and returns a list of Loop objects.
-    
-    Args:
-        file_path (str): The path to the Python file to inspect and extract loops from.
-        
-    Returns:
-        list: A list of Loop objects representing each extracted loop.
-    """
-    with open(file_path, 'r') as file:
-        code_content = file.read()
-    
-    return extract_loops_from_code_v4(code_content)

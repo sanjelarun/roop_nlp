@@ -36,6 +36,7 @@ def print_extraction_results(results: dict):
             print(f"Status: {loop.status}")
             print(f"Start Line: {loop.start_line}")
             print(f"End Line: {loop.end_line}")
+            print(f"Original Code: {loop.original_code}")
             print(f"Input Datasets: {', '.join(loop.input_datasets)}")
             print(f"Result Datasets: {', '.join(loop.result_datasets)}")
             print(f"Operations:")
@@ -54,4 +55,4 @@ def print_extraction_results(results: dict):
 
 
 file_paths = ["simple_loop.py","loop_with_conditions.py","mutliple_loop.py","nested_loop.py"]
-print_extraction_results(test_extraction_from_file([file_paths[1]]))
+print_extraction_results(test_extraction_from_file([file_paths[2]]))

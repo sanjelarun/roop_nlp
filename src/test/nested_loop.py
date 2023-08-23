@@ -3,3 +3,5 @@ flattened = []
 for row in matrix:
     for item in row:
         flattened.append(item)
+
+
