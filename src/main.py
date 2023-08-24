@@ -1,38 +1,20 @@
 import os
 from extraction.extractors import extract_loops_from_code_v4
-from refactoring.refactor import refactor_loop
 from generation.code_generator import generate_pyspark_code
+from nlp.prediction import Top5Predictions
 import traceback
+from verifier.verifier import Verifier
 
 def read_file_to_string(file_path: str) -> str:
-    """
-    Reads the content of a file and returns it as a string.
-    
-    Args:
-    - file_path (str): Path to the file.
-
-    Returns:
-    - str: Content of the file.
-    """
     with open(file_path, 'r') as file:
         content = file.read()
     return content
 
 def write_string_to_file(content: str, file_path: str):
-    """
-    Writes the given string content to a file.
-    
-    Args:
-    - content (str): The content to write to the file.
-    - file_path (str): Path to the output file.
-    """
     with open(file_path, 'w') as file:
         file.write(content)
 
 def print_extracted_loops(extracted_loops):
-    """
-    Prints details of the extracted loops for debugging and clarity.
-    """
     for loop in extracted_loops:
         print("="*50)
         print(f"Loop ID: {loop.loop_id}")
@@ -51,31 +33,30 @@ def print_extracted_loops(extracted_loops):
                 print(f"  - {condition}")
         print("="*50)
 
-def driver_program(file_path, out_file_path):
+def driver_program(file_path, out_file_path, test_file_path):
     try:
         python_code = read_file_to_string(file_path)
+        
         # Step 1: Extract loops from the Python file
         extracted_loops = extract_loops_from_code_v4(python_code)
         
         # Display extraction results
         print_extracted_loops(extracted_loops)
         
-        # Step 2: Refactor the code (for demonstration purposes, using predictions ["map", "filter", "reduce"] for all loops)
-        predictions = [["filter"], ["map"]]  # Dummy predictions for all loops; will use NLP model later
-        #predictions = [["join"]] 
-        #predictions = [["reduce"]] 
-        idx = 0
-        while idx < len(extracted_loops):
-            loop = extracted_loops[idx]
-            refactored_code = refactor_loop(loop, predictions[idx])
-            loop.refactored_code = refactored_code
-            if loop.is_nested:
-                idx += 2 
+        # Initialize the BERT classifier to get predictions
+        top5 = Top5Predictions()
+        
+        # Step 2: Refactor the code using predictions and verify them using the test file
+        for loop in extracted_loops:
+            predictions = top5.make_prediction(loop.original_code)
+            print(predictions)
+            correct_prediction = Verifier.verify_predictions_for_loop(python_code, loop, predictions, test_file_path)
+            if correct_prediction:
+                loop.refactored_code = correct_prediction
             else:
-                idx += 1
+                print(f"No correct prediction found for loop {loop.loop_id}")
         
         # Step 3: Generate PySpark code
-        python_code = read_file_to_string(file_path)
         pyspark_code = generate_pyspark_code(python_code, extracted_loops)
         write_string_to_file(pyspark_code, out_file_path)
 
@@ -86,6 +67,7 @@ def driver_program(file_path, out_file_path):
 if __name__ == "__main__":
     base_directory = "f:/Papers/IEEE-BigData-2023/roop_nlp/src/test/"
     file_path = "multiple_loop.py"
+    test_file_path = os.path.join(base_directory, "test_multiple_loop.py")
     out_file_path = os.path.join(base_directory, "multiple_loop_pyspark.py")
     in_file_path = os.path.join(base_directory, file_path)
-    driver_program(in_file_path, out_file_path)
+    driver_program(in_file_path, out_file_path, test_file_path)

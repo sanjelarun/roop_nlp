@@ -1,7 +1,7 @@
 from typing import List
 from data_models.loop import Loop
 from itertools import takewhile
-
+import re
 
 def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
     """
@@ -12,13 +12,11 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
     
     # PySpark initialization
     pyspark_initialization = [
-        "from pyspark import SparkContext, SparkConf",
         "conf = SparkConf().setAppName('MyApp').setMaster('local')",
-        "sc = SparkContext(conf=conf)",
-        ""
+        "sc = SparkContext(conf=conf)"
     ]
     
-    refactored_lines = pyspark_initialization.copy()
+    refactored_lines = ["from pyspark import SparkContext, SparkConf"]
 
     # Create a mapping of loop starting line to the loop for quick look-up
     loop_mapping = {loop.start_line: loop for loop in extracted_loops}
@@ -30,7 +28,11 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
 
             # Extract indentation from the loop's starting line
             indentation = "".join(takewhile(str.isspace, lines[line_num]))
-            
+
+            # Insert PySpark initialization with correct indentation
+            for init_line in pyspark_initialization:
+                refactored_lines.append(indentation + init_line)
+
             # Add parallelization code for each input dataset with correct indentation
             for dataset in loop.input_datasets:
                 refactored_lines.append(indentation + f"{dataset}_rdd = sc.parallelize({dataset})")
@@ -40,6 +42,9 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
             for code_line in refactored_code_lines:
                 refactored_lines.append(indentation + code_line)
 
+            # Stop the Spark context with correct indentation
+            refactored_lines.append(indentation + "sc.stop()")
+
             # Skip the lines corresponding to this loop
             line_num += (loop.end_line - loop.start_line + 1)
         else:
@@ -48,3 +53,4 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
             line_num += 1
 
     return '\n'.join(refactored_lines).strip()
+

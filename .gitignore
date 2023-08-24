@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+myenv/
 
 # Spyder project settings
 .spyderproject
@@ -155,6 +156,8 @@ nlp/model_100000_07_14.h5
 nlp/model_10000.zip
 .vscode
 
+src/nlp/model_100000_07_14.h5
+nlp
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
