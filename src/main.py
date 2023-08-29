@@ -47,6 +47,7 @@ def driver_program(file_path, out_file_path, test_file_path):
         top5 = Top5Predictions()
         skip_next = False
                 #  Step 2: Refactor the code using predictions and verify them using the test file
+        id = 0
         for loop in extracted_loops:
             # If skip_next is True, reset it and skip this iteration
             if skip_next:
@@ -60,7 +61,7 @@ def driver_program(file_path, out_file_path, test_file_path):
             print(loop.original_code)
             print(predictions)
             print(predictions2)
-            correct_prediction = Verifier.verify_predictions_for_loop(python_code, loop, predictions, test_file_path)
+            correct_prediction,id = Verifier.verify_predictions_for_loop(python_code, loop, predictions, test_file_path, id)
             if correct_prediction:
                 loop.refactored_code = correct_prediction
             else:
@@ -79,9 +80,10 @@ def driver_program(file_path, out_file_path, test_file_path):
         print(traceback.format_exc())
 
 if __name__ == "__main__":
-    base_directory = "f:/Papers/IEEE-BigData-2023/roop_nlp/src/test/"
-    file_path = "multiple_loop.py"
-    test_file_path = os.path.join(base_directory, "test_multiple_loop.py")
-    out_file_path = os.path.join(base_directory, "join_pyspark.py")
-    in_file_path = os.path.join(base_directory, file_path)
+    input_dir = "src\examples\simple_operations"
+    output_dir = "src\output"
+    file_path = "join.py"
+    test_file_path = os.path.join(input_dir, "test_join.py")
+    out_file_path = os.path.join(output_dir, "join_pyspark.py")
+    in_file_path = os.path.join(input_dir, file_path)
     driver_program(in_file_path, out_file_path, test_file_path)

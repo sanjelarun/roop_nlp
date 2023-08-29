@@ -1,21 +1,16 @@
 from pyspark import SparkContext, SparkConf
 
 def get_or_create_spark_context():
-    conf = SparkConf().setAppName('MyApp').setMaster('local[2]')
+    conf = SparkConf().setAppName('App0').setMaster('local[2]')
     return SparkContext.getOrCreate(conf)
 
-def even_counter(numbers):
-    evens = []
-    sc = get_or_create_spark_context()
-    numbers_rdd = sc.parallelize(numbers)
-    evens = numbers_rdd.filter(lambda num: num % 2 == 0).collect()
-    sc.stop()
-    return evens
+def join_list(orders, order_details):
+    # The result will hold tuples combining matched orders and order details
+    joined_result = []
 
-def length_counter(strings):
-    lengths = []
     sc = get_or_create_spark_context()
-    strings_rdd = sc.parallelize(strings)
-    lengths = strings_rdd.map(lambda s: len(s)).collect()
+    orders_rdd = sc.parallelize(orders)
+    order_details_rdd = sc.parallelize(order_details)
+    joined_result = orders_rdd.join(order_details_rdd).collect()
     sc.stop()
-    return lengths
+    return joined_result

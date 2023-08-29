@@ -1,60 +1,55 @@
 from pyspark import SparkContext, SparkConf
 
 def get_or_create_spark_context():
-    conf = SparkConf().setAppName('MyApp').setMaster('local[2]')
+    conf = SparkConf().setAppName('App1').setMaster('local[2]')
     return SparkContext.getOrCreate(conf)
 
-def even_counter(numbers):
-    evens = []
-    for num in numbers:
-        if num % 2 == 0:
-            evens.append(num)
-    return evens
+def join_list(orders, order_details):
+    # The result will hold tuples combining matched orders and order details
+    joined_result = []
 
-def length_counter(strings):
-    lengths = []
     sc = get_or_create_spark_context()
-    strings_rdd = sc.parallelize(strings)
-    lengths = strings_rdd.map(lambda s: len(s)).collect()
+    orders_rdd = sc.parallelize(orders)
+    order_details_rdd = sc.parallelize(order_details)
+    joined_result = orders_rdd.join(order_details_rdd).collect()
     sc.stop()
-    return lengths
+    return joined_result
 import pytest
 
 
 import os
 os.environ['PYSPARK_PYTHON'] = 'F:\\Papers\\IEEE-BigData-2023\\roop_nlp\\myenv\\Scripts\\python.exe'
-# Tests for even_counter function
-def test_even_counter_empty_list():
-    numbers = []
-    assert even_counter(numbers) == [], f"Expected [] for input {numbers}, but got {even_counter(numbers)}"
 
-def test_even_counter_no_evens():
-    numbers = [1, 3, 5, 7]
-    assert even_counter(numbers) == [], f"Expected [] for input {numbers}, but got {even_counter(numbers)}"
+def test_join_list_empty_lists():
+    orders = []
+    order_details = []
+    assert join_list(orders, order_details) == [], "Expected an empty list"
 
-def test_even_counter_all_evens():
-    numbers = [2, 4, 6, 8]
-    assert even_counter(numbers) == numbers, f"Expected {numbers} for input {numbers}, but got {even_counter(numbers)}"
+def test_join_list_empty_orders():
+    orders = []
+    order_details = [(1, 'detail1'), (2, 'detail2')]
+    assert join_list(orders, order_details) == [], "Expected an empty list"
 
-def test_even_counter_mixed_numbers():
-    numbers = [1, 2, 3, 4, 5]
-    expected_result = [2, 4]
-    assert even_counter(numbers) == expected_result, f"Expected {expected_result} for input {numbers}, but got {even_counter(numbers)}"
+def test_join_list_empty_order_details():
+    orders = [(1, 'order1'), (2, 'order2')]
+    order_details = []
+    assert join_list(orders, order_details)== [], "Expected an empty list"
 
-# Tests for length_counter function
-def test_length_counter_empty_list():
-    strings = []
-    assert length_counter(strings) == [], f"Expected [] for input {strings}, but got {length_counter(strings)}"
+def test_join_list_no_matches():
+    orders = [(1, 'order1'), (2, 'order2')]
+    order_details = [(3, 'detail3'), (4, 'detail4')]
+    assert join_list(orders, order_details) == [], "Expected an empty list"
 
-def test_length_counter_single_word():
-    strings = ["apple"]
-    expected_result = [5]
-    assert length_counter(strings) == expected_result, f"Expected {expected_result} for input {strings}, but got {length_counter(strings)}"
+def test_join_list_with_matches():
+    orders = [(1, 'order1'), (2, 'order2')]
+    order_details = [(1, 'detail1'), (2, 'detail2'), (3, 'detail3')]
+    expected_result = sorted([(1, ('order1', 'detail1')), (2, ('order2', 'detail2'))])
+    
+    # Sorting the actual result
+    actual_result = sorted(join_list(orders, order_details))
 
-def test_length_counter_multiple_words():
-    strings = ["apple", "banana", "cherry"]
-    expected_result = [5, 6, 6]
-    assert length_counter(strings) == expected_result, f"Expected {expected_result} for input {strings}, but got {length_counter(strings)}"
+    assert actual_result == expected_result, f"Expected {expected_result}, but got {actual_result}"
+
 
 if __name__ == "__main__":
     pytest.main([__file__])

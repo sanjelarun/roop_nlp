@@ -8,8 +8,8 @@ def reduce_operation(dataset, operation):
     return f"{operation.variables[0]} = {dataset}.reduce(lambda {operation.variables[0]}, {operation.variables[1]}: {operation.operation_str})"
 
 def join_operation(dataset, secondary_dataset, result_dataset):
-    # if result_dataset:
-    #     return f"{result_dataset} = {dataset}.join({secondary_dataset}).collect()"
+    if result_dataset:
+        return f"{result_dataset} = {dataset}.join({secondary_dataset}).collect()"
     return f"{dataset} = {dataset}.join({secondary_dataset}).collect()"
 
 def union_operation(dataset, secondary_dataset, result_dataset=""):

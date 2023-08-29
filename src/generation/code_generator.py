@@ -2,7 +2,7 @@ from typing import List
 from data_models.loop import Loop
 from itertools import takewhile
 
-def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
+def generate_pyspark_code(python_code: str, extracted_loops: List[Loop],contextID=0) -> str:
     """
     Generate PySpark code by replacing original loops with refactored code.
     """
@@ -18,7 +18,7 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
         "from pyspark import SparkContext, SparkConf",
         "",
         "def get_or_create_spark_context():",
-        "    conf = SparkConf().setAppName('MyApp').setMaster('local[2]')",
+        "    conf = SparkConf().setAppName('App"+str(contextID)+"').setMaster('local[2]')",
         "    return SparkContext.getOrCreate(conf)",
         ""
     ]
