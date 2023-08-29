@@ -84,7 +84,9 @@ class Top5Predictions:
     
     def make_prediction(self, code):
         return self.classifier.predict_top_5_labels(code)
-
+    
+    def make_single_prediction(self, code):
+        return self.classifier.predict_top_class(code)
 # top5 = Top5Predictions()
 # code_snap = "for num in numbers:\
 # count += 1"

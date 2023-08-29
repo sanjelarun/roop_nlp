@@ -1,5 +1,6 @@
-import pytest
-from simple_loop import total
+import os
+os.environ['PYSPARK_PYTHON'] = 'F:\\Papers\\IEEE-BigData-2023\\roop_nlp\\myenv\\Scripts\\python.exe'
+
 
 def test_total_empty_list():
     data = []

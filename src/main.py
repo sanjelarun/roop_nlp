@@ -45,16 +45,30 @@ def driver_program(file_path, out_file_path, test_file_path):
         
         # Initialize the BERT classifier to get predictions
         top5 = Top5Predictions()
-        
-        # Step 2: Refactor the code using predictions and verify them using the test file
+        skip_next = False
+                #  Step 2: Refactor the code using predictions and verify them using the test file
         for loop in extracted_loops:
+            # If skip_next is True, reset it and skip this iteration
+            if skip_next:
+                skip_next = False
+                continue
+            #hard_code = "joined_result = [] \nfor order in orders:\n\tfor detail in order_details:\n\tif order[0] == detail[0]:\n\tjoined_result.append((order[0], order[1], detail[1]))"
+            hard_code = "result = []\nfor k, v in dict1.items():\n\tif k in dict2.keys():\n\t\tresult.append((k, v))"           
             predictions = top5.make_prediction(loop.original_code)
+            predictions2 = top5.make_single_prediction(loop.original_code)
+
+            print(loop.original_code)
             print(predictions)
+            print(predictions2)
             correct_prediction = Verifier.verify_predictions_for_loop(python_code, loop, predictions, test_file_path)
             if correct_prediction:
                 loop.refactored_code = correct_prediction
             else:
                 print(f"No correct prediction found for loop {loop.loop_id}")
+
+            # If the current loop's is_nested flag is set, mark skip_next as True
+            if loop.is_nested:  # Assuming the flag is named `is_nested`
+                skip_next = True
         
         # Step 3: Generate PySpark code
         pyspark_code = generate_pyspark_code(python_code, extracted_loops)
@@ -68,6 +82,6 @@ if __name__ == "__main__":
     base_directory = "f:/Papers/IEEE-BigData-2023/roop_nlp/src/test/"
     file_path = "multiple_loop.py"
     test_file_path = os.path.join(base_directory, "test_multiple_loop.py")
-    out_file_path = os.path.join(base_directory, "multiple_loop_pyspark.py")
+    out_file_path = os.path.join(base_directory, "join_pyspark.py")
     in_file_path = os.path.join(base_directory, file_path)
     driver_program(in_file_path, out_file_path, test_file_path)

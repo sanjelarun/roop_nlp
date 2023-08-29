@@ -1,4 +1,4 @@
-import os
+
 def total(data):
    squared_data = 0
    for num in data:

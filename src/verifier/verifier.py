@@ -1,6 +1,10 @@
 import pytest
 import xml.etree.ElementTree as ET
 from refactoring.refactor import refactor_loop
+
+import os
+os.environ['PYSPARK_PYTHON'] = 'F:\\Papers\\IEEE-BigData-2023\\roop_nlp\\myenv\\Scripts\\python.exe'
+
 class Verifier:
     LOG_PATH = "verifier/logs/test.xml"
 
@@ -53,7 +57,17 @@ class Verifier:
                 
                 # Append test functions to combined code
                 combined_code += "\n\n" + test_code_content
-
+                try:
+                    compiled_code = compile(combined_code, '<string>', 'exec')
+                except Exception as e:
+                    print(f"Compile-time error detected: {e}")
+                    continue
+                try:
+                    exec(compiled_code)
+                except Exception as e:
+                    print(f"Runtime error detected: {e}")
+                    continue  # Skip this loop iteration and move to the next prediction
+        
                 # Save the combined code to a temporary file
                 with open("temp_code.py", "w") as temp_file:
                     temp_file.write(combined_code)

@@ -1,7 +1,6 @@
 from typing import List
 from data_models.loop import Loop
 from itertools import takewhile
-import re
 
 def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
     """
@@ -12,11 +11,17 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
     
     # PySpark initialization
     pyspark_initialization = [
-        "conf = SparkConf().setAppName('MyApp').setMaster('local')",
-        "sc = SparkContext(conf=conf)"
+        "sc = get_or_create_spark_context()",
     ]
     
-    refactored_lines = ["from pyspark import SparkContext, SparkConf"]
+    refactored_lines = [
+        "from pyspark import SparkContext, SparkConf",
+        "",
+        "def get_or_create_spark_context():",
+        "    conf = SparkConf().setAppName('MyApp').setMaster('local[2]')",
+        "    return SparkContext.getOrCreate(conf)",
+        ""
+    ]
 
     # Create a mapping of loop starting line to the loop for quick look-up
     loop_mapping = {loop.start_line: loop for loop in extracted_loops}
@@ -42,7 +47,8 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
             for code_line in refactored_code_lines:
                 refactored_lines.append(indentation + code_line)
 
-            # Stop the Spark context with correct indentation
+            # Clear the cache and then stop the Spark context
+            
             refactored_lines.append(indentation + "sc.stop()")
 
             # Skip the lines corresponding to this loop
@@ -53,4 +59,3 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop]) -> str:
             line_num += 1
 
     return '\n'.join(refactored_lines).strip()
-

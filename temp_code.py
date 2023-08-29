@@ -1,4 +1,9 @@
 from pyspark import SparkContext, SparkConf
+
+def get_or_create_spark_context():
+    conf = SparkConf().setAppName('MyApp').setMaster('local[2]')
+    return SparkContext.getOrCreate(conf)
+
 def even_counter(numbers):
     evens = []
     for num in numbers:
@@ -8,8 +13,7 @@ def even_counter(numbers):
 
 def length_counter(strings):
     lengths = []
-    conf = SparkConf().setAppName('MyApp').setMaster('local')
-    sc = SparkContext(conf=conf)
+    sc = get_or_create_spark_context()
     strings_rdd = sc.parallelize(strings)
     lengths = strings_rdd.map(lambda s: len(s)).collect()
     sc.stop()
