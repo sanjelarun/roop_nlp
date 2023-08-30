@@ -1,55 +1,44 @@
 from pyspark import SparkContext, SparkConf
 
 def get_or_create_spark_context():
-    conf = SparkConf().setAppName('App1').setMaster('local[2]')
+    conf = SparkConf().setAppName('App2').setMaster('local[2]')
     return SparkContext.getOrCreate(conf)
 
-def join_list(orders, order_details):
-    # The result will hold tuples combining matched orders and order details
-    joined_result = []
 
-    sc = get_or_create_spark_context()
-    orders_rdd = sc.parallelize(orders)
-    order_details_rdd = sc.parallelize(order_details)
-    joined_result = orders_rdd.join(order_details_rdd).collect()
-    sc.stop()
-    return joined_result
+def total(data):
+   total = 0
+   sc = get_or_create_spark_context()
+   data_rdd = sc.parallelize(data)
+   
+   total = data_rdd.sum()
+   sc.stop()
+   return total
 import pytest
 
 
 import os
 os.environ['PYSPARK_PYTHON'] = 'F:\\Papers\\IEEE-BigData-2023\\roop_nlp\\myenv\\Scripts\\python.exe'
 
-def test_join_list_empty_lists():
-    orders = []
-    order_details = []
-    assert join_list(orders, order_details) == [], "Expected an empty list"
 
-def test_join_list_empty_orders():
-    orders = []
-    order_details = [(1, 'detail1'), (2, 'detail2')]
-    assert join_list(orders, order_details) == [], "Expected an empty list"
+def test_total_single_element():
+    data = [5]
+    expected_result = 5
+    assert total(data) == expected_result, f"Expected {expected_result} for input {data}, but got {total(data)}"
 
-def test_join_list_empty_order_details():
-    orders = [(1, 'order1'), (2, 'order2')]
-    order_details = []
-    assert join_list(orders, order_details)== [], "Expected an empty list"
+def test_total_multiple_elements():
+    data = [1, 2, 3, 4, 5]
+    expected_result = sum(data)
+    assert total(data) == expected_result, f"Expected {expected_result} for input {data}, but got {total(data)}"
 
-def test_join_list_no_matches():
-    orders = [(1, 'order1'), (2, 'order2')]
-    order_details = [(3, 'detail3'), (4, 'detail4')]
-    assert join_list(orders, order_details) == [], "Expected an empty list"
+def test_total_negative_numbers():
+    data = [-1, -2, -3]
+    expected_result = sum(data)
+    assert total(data) == expected_result, f"Expected {expected_result} for input {data}, but got {total(data)}"
 
-def test_join_list_with_matches():
-    orders = [(1, 'order1'), (2, 'order2')]
-    order_details = [(1, 'detail1'), (2, 'detail2'), (3, 'detail3')]
-    expected_result = sorted([(1, ('order1', 'detail1')), (2, ('order2', 'detail2'))])
-    
-    # Sorting the actual result
-    actual_result = sorted(join_list(orders, order_details))
-
-    assert actual_result == expected_result, f"Expected {expected_result}, but got {actual_result}"
-
+def test_total_mixed_numbers():
+    data = [-1, 2, -3, 4, -5]
+    expected_result = sum(data)
+    assert total(data) == expected_result, f"Expected {expected_result} for input {data}, but got {total(data)}"
 
 if __name__ == "__main__":
     pytest.main([__file__])

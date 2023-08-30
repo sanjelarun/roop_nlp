@@ -1,4 +1,4 @@
-def even_counter(numbers):
+def even_filter(numbers):
     evens = []
     for num in numbers:
         if num % 2 == 0:

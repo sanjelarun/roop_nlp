@@ -36,6 +36,7 @@ class Verifier:
             compiled_code = compile(combined_code, '<string>', 'exec')
             exec(compiled_code)
         except Exception as e:
+            print(combined_code)
             print(f"Error detected: {e}")
             return False
         
@@ -52,7 +53,7 @@ class Verifier:
 
         for prediction in predictions:
             refactored_code = refactor_loop(loop, prediction.split(","))
-            if refactored_code is None:
+            if len(refactored_code) <= 2:
                 continue
             
             loop.refactored_code = refactored_code
@@ -64,7 +65,14 @@ class Verifier:
             if not Verifier.execute_code_and_write_to_file(combined_code):
                 continue
 
-            if Verifier.run_pytest_isolated():
-                return loop.refactored_code, id
+            test_passed = Verifier.run_pytest_isolated()
+
+            if test_passed:
+                failed_test_cases = Verifier.parse_test_xml()
+                
+                # Check if all tests have passed
+                if not failed_test_cases:
+                    return loop.refactored_code, id
 
         return None, id  # If no prediction was correct
+

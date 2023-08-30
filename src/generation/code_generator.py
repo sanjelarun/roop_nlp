@@ -39,9 +39,12 @@ def generate_pyspark_code(python_code: str, extracted_loops: List[Loop],contextI
                 refactored_lines.append(indentation + init_line)
 
             # Add parallelization code for each input dataset with correct indentation
+            skip = False
             for dataset in loop.input_datasets:
-                refactored_lines.append(indentation + f"{dataset}_rdd = sc.parallelize({dataset})")
-
+                if not skip:
+                    refactored_lines.append(indentation + f"{dataset}_rdd = sc.parallelize({dataset})")
+                if "flatMap(" in loop.refactored_code:
+                    skip = True 
             # Add refactored code with correct indentation
             refactored_code_lines = loop.refactored_code.split('\n')
             for code_line in refactored_code_lines:
