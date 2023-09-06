@@ -4,7 +4,7 @@ def increase_join(xs,ys):
     result = []
     for y in ys:
         t.append(y*2)
-    y
+
     for x in xs:
         for y in ys:
             result.append((x,y))

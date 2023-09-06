@@ -56,11 +56,49 @@ def traverse_and_run_main_with_error_handling(base_path, main_py_path):
                 
     return results
 
+from statistics import mean, stdev
+
+def run_experiment(num_runs=10):
+    all_results = []
+    
+    for run_num in range(1, num_runs + 1):
+        print(f"=== Running experiment {run_num} ===")
+        single_run_results = traverse_and_run_main_with_error_handling(base_path, main_py_path)
+        
+        for result in single_run_results:
+            result['run_num'] = run_num
+        
+        all_results.extend(single_run_results)
+    
+    # Group results by Python file
+    grouped_results = {}
+    for result in all_results:
+        key = (result['folder'], result['python_file'])
+        if key not in grouped_results:
+            grouped_results[key] = []
+        grouped_results[key].append(result['elapsed_time'])
+    
+    # Calculate min, max, avg, and stdev for each Python file
+    summary_results = []
+    for (folder, python_file), times in grouped_results.items():
+        summary_results.append({
+            'folder': folder,
+            'python_file': python_file,
+            'min_time': min(times),
+            'avg_time': mean(times),
+            'max_time': max(times),
+            'stdev_time': stdev(times) if len(times) > 1 else 0,  # Standard deviation is zero if there's only one value
+            'all_times': times
+        })
+    
+    # Print summary
+    for summary in summary_results:
+        print(f"Folder: {summary['folder']}, Python File: {summary['python_file']}, Min Time: {summary['min_time']}s, Avg Time: {summary['avg_time']}s, Max Time: {summary['max_time']}s, Std Dev: {summary['stdev_time']}s, All Times: {summary['all_times']}")
+
 # For demonstration, using placeholders for paths
 base_path = 'src\examples'  # Replace with actual path to the 'examples' directory
 main_py_path = 'src\main.py'  # Replace with actual path to the modified main.py
 
-# Run the function and print the results
-results_with_error_handling = traverse_and_run_main_with_error_handling(base_path, main_py_path)
-for result in results_with_error_handling:
-    print(f"Folder: {result['folder']}, Python File: {result['python_file']}, Time: {result['elapsed_time']}s, Loops: {result['num_loops']}, API Calls: {result['num_api_calls']}, Error: {result['error']}")
+# Run the experiment
+run_experiment(num_runs=10)
+
