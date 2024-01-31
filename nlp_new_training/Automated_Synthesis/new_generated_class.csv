@@ -1,0 +1,1000 @@
+"for i in range(len(data0)):\n\tdata[i] *= 3", ['map()']
+"for element in list0:\n\tresults.append(element**3)", ['map()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)", ['map()']
+"result = ''\nfor str in strings:\n\tresult += str.lower()", ['map()', 'reduce()']
+"result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num * 2)", ['map()', 'filter()']
+"result = []\nfor num in numbers:\n\tif num < 5:\n\t\tresult.append(num / 2)", ['map()', 'filter()']
+"result = []\nfor product in products:\n\tif product['price'] < 10:\n\t\tresult.append(product)", ['filter()']
+"for element in array:\n\tif element % 3 == 0:\n\t\toutput.append(element)", ['filter()']
+"intermediate = []\nfor score in scores:\n\tif score >= 90:\n\t\tintermediate.append(score)\nresult = 0\nfor score in intermediate:\n\tresult += score", ['filter()', 'reduce()']
+"result = 0\nfor item in items:\n\tresult = func(result, item)", ['reduce()']
+"intermediate = []\nfor person in people:\n\tif person['age'] > 20:\n\t\tintermediate.append(person)\nresult = ''\nfor person in intermediate:\n\tresult += person['name']", ['filter()', 'reduce()']
+"result = []\nfor word in words:\n\tif word.startswith('a'):\n\t\tresult.append(word)", ['filter()']
+"result = 0\nfor num in numbers:\n\tresult += num", ['reduce()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult.sort()", ['map()', 'sortBy()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)", ['flatMap()']
+"result = []\nfor group in groups:\n\tresult.append(group.sort())", ['groupBy()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = list(set(result))", ['distinct()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = result[:5]", ['take()']
+"result = []\nfor num in numbers1:\n\tresult.append(num)\nfor num in numbers2:\n\tresult.append(num)", ['union()']
+"result = []\nfor k, v in dict1.items():\n\tif k in dict2.keys():\n\t\tresult.append((k, v))", ['join()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = sum(result)", ['sum()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = len(result)", ['count()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = list(set(result))\nresult = len(result)", ['distinct()', 'count()']
+"result = []\nfor num in numbers1:\n\tresult.append(num)\nfor num in numbers2:\n\tresult.append(num)\nresult = len(result)", ['union()', 'count()']
+"result = []\nfor k, v in dict1.items():\n\tif k in dict2.keys():\n\t\tresult.append((k, v))\nresult = len(result)", ['join()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = sum(result)\nresult = result/len(numbers)", ['reduce()', 'count()']
+"result = []\nfor element in list:\n\tresult.append(element)\nresult = list(set(result))", ['distinct()']
+"result = []\nfor i in range(10):\n\tresult.append(i)", ['collect()']
+"result = []\nfor num in numbers:\n\tresult.append(num**3)", ['map()']
+"result = []\nfor group in groups:\n\tresult.append(sorted(group))", ['sortBy()']
+"result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num)\nresult = len(result)", ['filter()', 'count()']
+"result = 0\nfor num in numbers:\n\tresult += num*10", ['map()', 'reduce()']
+"result = []\nfor list in lists:\n\tfor element in list:\n\t\tresult.append(element)\nresult.sort()", ['flatMap()', 'sortBy()']
+"result = 0\nfor num in numbers:\n\tresult += num**2", ['map()', 'reduce()']
+"result = []\nfor num in numbers:\n\tif num > 0:\n\t\tresult.append(num)\nresult = result[:10]", ['filter()', 'take()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))", ['join()']
+"result = []\nfor element in list1:\n\tresult.append(element)\nfor element in list2:\n\tresult.append(element)\nresult = list(set(result))", ['union()', 'distinct()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = result / len(numbers)", ['reduce()', 'count()']
+"result = []\nfor list in lists:\n\tfor element in list:\n\t\tresult.append(element)\nresult = sum(result)", ['flatMap()', 'sum()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 5)\nresult.sort(reverse=True)", ['map()', 'sortBy()']
+"result = []\nfor list in lists:\n\tfor element in list:\n\t\tresult.append(element)\nresult = len(set(result))", ['flatMap()', 'distinct()', 'count()']
+"result = 0\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult += num", ['filter()', 'reduce()']
+"result = []\nfor num in numbers1:\n\tresult.append(num)\nfor num in numbers2:\n\tresult.append(num)\nresult.sort()", ['union()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult = len(result)", ['map()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num**3)\nresult = sum(result)", ['map()', 'sum()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))\nresult = len(result)", ['join()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult = list(set(result))\nresult.sort()\nresult = result[:5]", ['map()', 'distinct()', 'sortBy()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num*10)\nresult = sum(result)\nresult = result/len(numbers)\nresult = round(result, 2)", ['map()', 'reduce()', 'count()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))\nresult = len(set(result))\nresult = result[:10]", ['join()', 'distinct()', 'count()', 'take()']
+"result = []\nfor element in list1:\n\tresult.append(element)\nfor element in list2:\n\tresult.append(element)\nresult = list(set(result))\nresult.sort()\nresult = sum(result)", ['union()', 'distinct()', 'sortBy()', 'sum()']
+"result = []\nfor group in groups:\n\tresult.append(sorted(group))\nresult = len(result)\nresult = result[:10]\nresult = sum(result)", ['sortBy()', 'count()', 'take()', 'sum()']
+"intermediate = []\nfor list in lists:\n\tfor element in list:\n\t\tintermediate.append(element)\nresult = []\nfor element in intermediate:\n\tif element % 2 == 0:\n\t\tresult.append(element)\nresult = sum(result)\nresult = result/len(result)", ['flatMap()', 'filter()', 'reduce()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult.sort()\nresult = result[:5]\nresult = len(result)", ['map()', 'sortBy()', 'take()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = sum(result)\nresult = result/len(result)\nresult = round(result, 2)", ['filter()', 'reduce()', 'count()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))\nresult.sort()\nresult = result[:5]\nresult = len(result)", ['join()', 'sortBy()', 'take()', 'count()']
+"result = []\nfor num in numbers1:\n\tresult.append(num)\nfor num in numbers2:\n\tresult.append(num)\nresult = list(set(result))\nresult = len(result)\nresult = sum(result)", ['union()', 'distinct()', 'count()', 'sum()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult = sum(result)", ['map()', 'sum()']
+"result = []\nfor val in values:\n\tif val > 0:\n\t\tresult.append(val)\nresult = len(result)", ['filter()', 'count()']
+"result = 0\nfor num in numbers:\n\tresult += num*2\nresult = result / len(numbers)", ['map()', 'reduce()']
+"result = []\nfor list in lists:\n\tfor element in list:\n\t\tresult.append(element)\nresult.sort()", ['flatMap()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = list(set(result))", ['map()', 'distinct()']
+"result = []\nfor element in list1:\n\tresult.append(element)\nfor element in list2:\n\tresult.append(element)\nresult = len(result)", ['union()', 'count()']
+"result = []\nfor group in groups:\n\tresult.append(sorted(group))\nresult = result[0]", ['groupBy()', 'take()']
+"result = []\nfor element in list:\n\tresult.append(element)\nresult.sort()\nresult = result[:5]", ['map()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult = list(set(result))", ['map()', 'distinct()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))", ['map()', 'join()']
+"result = []\nfor num in numbers:\n\tif num > 0:\n\t\tresult.append(num)\nresult = result[:5]", ['filter()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult.sort(reverse=True)", ['map()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num**3)\nresult = len(result)", ['map()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num*2)\nresult = sum(result)", ['map()', 'reduce()']
+"result = []\nfor element in list:\n\tif element.startswith('a'):\n\t\tresult.append(element)\nresult = list(set(result))", ['filter()', 'distinct()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult = list(set(result))\nresult.sort()", ['map()', 'distinct()', 'sortBy()']
+"result = []\nfor val in values:\n\tif val > 0:\n\t\tresult.append(val)\nresult = len(result)\nresult = sum(result)", ['filter()', 'count()', 'sum()']
+"result = 0\nfor num in numbers:\n\tresult += num*2\nresult = result / len(numbers)\nresult = list(set([result]))", ['map()', 'reduce()', 'distinct()']
+"result = []\nfor list in lists:\n\tfor element in list:\n\t\tresult.append(element)\nresult.sort()\nresult = result[:5]", ['flatMap()', 'sortBy()', 'take()']
+"result = []\nfor element in list1:\n\tresult.append(element)\nfor element in list2:\n\tresult.append(element)\nresult = list(set(result))\nresult = len(result)", ['union()', 'distinct()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = list(set(result))\nresult.sort()", ['map()', 'distinct()', 'sortBy()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))\nresult = len(result)\nresult = sum([x[1][0] for x in result])", ['map()', 'join()', 'sum()']
+"result = []\nfor num in numbers:\n\tif num > 0:\n\t\tresult.append(num)\nresult = result[:5]\nresult = sum(result)", ['filter()', 'take()', 'sum()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult.sort(reverse=True)\nresult = result[:5]", ['map()', 'sortBy()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num**3)\nresult = len(result)\nresult = sum(result)", ['map()', 'count()', 'sum()']
+"result = []\nfor num in numbers:\n\tresult.append(num*2)\nresult = list(set(result))\nresult = sum(result)", ['map()', 'distinct()', 'sum()']
+"result = []\nfor element in list:\n\tif element.startswith('a'):\n\t\tresult.append(element)\nresult = list(set(result))\nresult.sort()", ['filter()', 'distinct()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num**2)\nresult = list(set(result))\nresult.sort()\nresult = result[:5]", ['map()', 'distinct()', 'sortBy()', 'take()']
+"result = []\nfor val in values:\n\tif val > 0:\n\t\tresult.append(val)\nresult = len(result)\nresult = sum(result)\nresult = round(result, 2)", ['filter()', 'count()', 'sum()', 'map()']
+"result = 0\nfor num in numbers:\n\tresult += num*2\nresult = result / len(numbers)\nresult = round(result, 2)\nresult = list(set([result]))", ['map()', 'reduce()', 'map()', 'distinct()']
+"result = []\nfor list in lists:\n\tfor element in list:\n\t\tresult.append(element)\nresult.sort()\nresult = result[:10]\nresult = len(result)", ['flatMap()', 'sortBy()', 'take()', 'count()']
+"result = []\nfor element in list1:\n\tresult.append(element)\nfor element in list2:\n\tresult.append(element)\nresult = list(set(result))\nresult.sort()\nresult = result[:5]", ['union()', 'distinct()', 'sortBy()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult = list(set(result))\nresult.sort()\nresult = sum(result)", ['map()', 'distinct()', 'sortBy()', 'sum()']
+"result = []\nfor key, val in dict1.items():\n\tif key in dict2.keys():\n\t\tresult.append((key, (val, dict2[key])))\nresult.sort()\nresult = result[:5]\nresult = len(result)", ['map()', 'join()', 'sortBy()', 'take()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 0:\n\t\tresult.append(num)\nresult = result[:10]\nresult = sum(result)\nresult = round(result, 2)", ['filter()', 'take()', 'sum()', 'map()']
+"result = []\nfor num in numbers:\n\tresult.append(num)\nresult.sort(reverse=True)\nresult = result[:5]\nresult = sum(result)", ['map()', 'sortBy()', 'take()', 'sum()']
+"result = []\nfor num in numbers:\n\tresult.append(num**3)\nresult = len(result)\nresult = sum(result)\nresult = round(result, 2)", ['map()', 'count()', 'sum()', 'map()']
+"result = []\nfor num in numbers:\n\tresult.append(num*2)\nresult = list(set(result))\nresult.sort()\nresult = result[:5]", ['map()', 'distinct()', 'sortBy()', 'take()']
+"result = []\nfor element in list:\n\tif element.startswith('a'):\n\t\tresult.append(element)\nresult = list(set(result))\nresult.sort()\nresult = result[:5]", ['filter()', 'distinct()', 'sortBy()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult.sort()", ['map()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tif num > 10:\n\t\tresult.append(num)\nresult.sort()", ['filter()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = list(set(result))", ['map()', 'distinct()']
+"result = []\nfor num in numbers:\n\tif num > 10:\n\t\tresult.append(num)\nresult = list(set(result))", ['filter()', 'distinct()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = len(result)", ['map()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 10:\n\t\tresult.append(num)\nresult = len(result)", ['filter()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = result[:5]", ['map()', 'take()']
+"result = []\nfor num in numbers:\n\tif num > 10:\n\t\tresult.append(num)\nresult = result[:5]", ['filter()', 'take()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult.sort()", ['union()', 'sortBy()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = list(set(result))", ['union()', 'distinct()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = len(result)", ['union()', 'count()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = result[:5]", ['union()', 'take()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result]", ['reduce()', 'collect()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = result / len(numbers)", ['reduce()', 'map()']
+"result = []\nfor sublist in list_of_lists:\n\tfor num in sublist:\n\t\tresult.append(num)\nresult.sort()", ['flatMap()', 'sortBy()']
+"result = []\nfor sublist in list_of_lists:\n\tfor num in sublist:\n\t\tresult.append(num)\nresult = list(set(result))", ['flatMap()', 'distinct()']
+"result = []\nfor sublist in list_of_lists:\n\tfor num in sublist:\n\t\tresult.append(num)\nresult = len(result)", ['flatMap()', 'count()']
+"result = []\nfor sublist in list_of_lists:\n\tfor num in sublist:\n\t\tresult.append(num)\nresult = result[:5]", ['flatMap()', 'take()']
+"result = []\nfor sublist in list_of_lists:\n\tfor num in sublist:\n\t\tresult.append(num)\nresult = sum(result)", ['flatMap()', 'sum()']
+"result = []\nfor sublist in list_of_lists:\n\tfor num in sublist:\n\t\tif num > 10:\n\t\t\tresult.append(num)\nresult.sort()", ['flatMap()', 'filter()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)", ['map()']
+"result = []\nfor word in words:\n\tresult.append(word.upper())", ['map()']
+"result = []\nfor char in string:\n\tresult.append(ord(char))", ['map()']
+"result = []\nfor item in items:\n\tresult.append(item['price'] * 1.05)", ['map()']
+"result = []\nfor word in sentence.split():\n\tresult.append(len(word))", ['map()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)", ['filter()']
+"result = []\nfor word in words:\n\tif len(word) > 3:\n\t\tresult.append(word)", ['filter()']
+"result = []\nfor item in items:\n\tif item['price'] > 50:\n\t\tresult.append(item)", ['filter()']
+"result = []\nfor student in students:\n\tif student['grade'] == 'A':\n\t\tresult.append(student)", ['filter()']
+"result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num)", ['filter()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)", ['flatMap()']
+"result = []\nfor sentence in sentences:\n\tfor word in sentence.split():\n\t\tresult.append(word)", ['flatMap()']
+"result = []\nfor string in strings:\n\tfor char in string:\n\t\tresult.append(char)", ['flatMap()']
+"result = []\nfor item in items:\n\tfor key in item.keys():\n\t\tresult.append(key)", ['flatMap()']
+"result = []\nfor student in students:\n\tfor course in student['courses']:\n\t\tresult.append(course)", ['flatMap()']
+"result = {}\nfor num in numbers:\n\tresult.setdefault(num % 2, []).append(num)", ['groupBy()']
+"result = {}\nfor word in words:\n\tresult.setdefault(len(word), []).append(word)", ['groupBy()']
+"result = {}\nfor item in items:\n\tresult.setdefault(item['category'], []).append(item)", ['groupBy()']
+"result = {}\nfor student in students:\n\tresult.setdefault(student['grade'], []).append(student)", ['groupBy()']
+"result = {}\nfor string in strings:\n\tresult.setdefault(len(string), []).append(string)", ['groupBy()']
+"result = sorted(numbers)", ['sortBy()']
+"result = sorted(words)", ['sortBy()']
+"result = sorted(items, key=lambda x: x['price'])", ['sortBy()']
+"result = sorted(students, key=lambda x: x['score'])", ['sortBy()']
+"result = sorted(strings, key=len)", ['sortBy()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)", ['union()']
+"result = []\nfor word in words1:\n\tresult.append(word)\nfor word in words2:\n\tresult.append(word)", ['union()']
+"result = []\nfor item in items1:\n\tresult.append(item)\nfor item in items2:\n\tresult.append(item)", ['union()']
+"result = []\nfor student in students1:\n\tresult.append(student)\nfor student in students2:\n\tresult.append(student)", ['union()']
+"result = []\nfor string in strings1:\n\tresult.append(string)\nfor string in strings2:\n\tresult.append(string)", ['union()']
+"result = list(set(numbers))", ['distinct()']
+"result = list(set(words))", ['distinct()']
+"result = list({item['id']: item for item in items}.values())", ['distinct()']
+"result = list(set(strings))", ['distinct()']
+"result = list({student['id']: student for student in students}.values())", ['distinct()']
+"result = [num for num in numbers]", ['collect()']
+"result = [word for word in words]", ['collect()']
+"result = [item for item in items]", ['collect()']
+"result = [student for student in students]", ['collect()']
+"result = [string for string in strings]", ['collect()']
+"result = numbers[:5]", ['take()']
+"result = words[:15]", ['take()']
+"result = items[:3]", ['take()']
+"result = students[:102]", ['take()']
+"result = strings[:777]", ['take()']
+"result = [word for word in words if word in dict1]", ['join()']
+"result = [item for item in items if item['id'] in dict1]", ['join()']
+"result = [student for student in students if student['id'] in dict1]", ['join()']
+"result = [string for string in strings if string in dict1]", ['join()']
+"result = [num for num in numbers if num in dict1]", ['join()']
+"result = len(numbers)", ['count()']
+"result = len(words)", ['count()']
+"result = len(items)", ['count()']
+"result = len(students)", ['count()']
+"result = len(strings)", ['count()']
+"result = []\nfor num in nums:\n\tresult.append(num / 3)", ["map()"]
+"result = []\nfor char in chars:\n\tresult.append(char.upper())", ["map()"]
+"result = []\nfor entity in entities:\n\tresult.append(entity.property)", ["map()"]
+"result = []\nfor val in vals:\n\tresult.append(func(val))", ["map()"]
+"result = []\nfor x in xs:\n\tresult.append(x3)", ["map()"]
+"accum = 0\nfor val in vals:\n\taccum += val", ["reduce()"]
+"product = 1\nfor num in nums:\n\tproduct *= num", ["reduce()"]
+"concat = ''\nfor char in chars:\n\tconcat += char", ["reduce()"]
+"result = 0\nfor entity in entities:\n\tresult = func(result, entity)", ["reduce()"]
+"sum_val = 0\nfor item in iterable:\n\tsum_val += item.value", ["reduce()"]
+"result = 0\nfor num in nums:\n\tresult += num / 3", ["map()", "reduce()"]
+"result = ''\nfor char in chars:\n\tresult += char.upper()", ["map()", "reduce()"]
+"result = 0\nfor entity in entities:\n\tresult += entity.property", ["map()", "reduce()"]
+"result = 0\nfor val in vals:\n\tresult += func(val)", ["map()", "reduce()"]
+"result = 0\nfor x in xs:\n\tresult += x3", ["map()", "reduce()"]
+"result = []\nfor num in nums:\n\tif num > 10:\n\t\tresult.append(num / 3)", ["map()", "filter()"]
+"result = []\nfor char in chars:\n\tif 'a' <= char <= 'z':\n\t\tresult.append(char.upper())", ["map()", "filter()"]
+"result = []\nfor entity in entities:\n\tif entity.isActive:\n\t\tresult.append(entity.property)", ["map()", "filter()"]
+"result = []\nfor val in vals:\n\tif val.isPositive:\n\t\tresult.append(func(val))", ["map()", "filter()"]
+"result = []\nfor x in xs:\n\tif x != 0:\n\t\tresult.append(x3)", ["map()", "filter()"]
+"result = []\nfor val in data:\n\tresult.append(val * 5)", ["map()"]
+"result = []\nfor string in text:\n\tresult.append(string.lower())", ["map()"]
+"result = []\nfor item in items:\n\tresult.append(item.method())", ["map()"]
+"result = []\nfor obj in objs:\n\tresult.append(transform(obj))", ["map()"]
+"result = []\nfor y in ys:\n\tresult.append(y4)", ["map()"]
+"total = 0\nfor num in nums:\n\ttotal += num", ["reduce()"]
+"product = 1\nfor val in values:\n\tproduct *= val", ["reduce()"]
+"concat = ''\nfor str in strings:\n\tconcat += str", ["reduce()"]
+"result = 0\nfor obj in objs:\n\tresult = func(result, obj)", ["reduce()"]
+"sum_val = 0\nfor item in items:\n\tsum_val += item.value", ["reduce()"]
+"result = 0\nfor val in data:\n\tresult += val * 5", ["map()", "reduce()"]
+"result = ''\nfor string in text:\n\tresult += string.lower()", ["map()", "reduce()"]
+"result = 0\nfor item in items:\n\tresult += item.method()", ["map()", "reduce()"]
+"result = 0\nfor obj in objs:\n\tresult += transform(obj)", ["map()", "reduce()"]
+"result = 0\nfor y in ys:\n\tresult += y4", ["map()", "reduce()"]
+"result = []\nfor val in data:\n\tif val > 20:\n\t\tresult.append(val * 5)", ["map()", "filter()"]
+"result = []\nfor string in text:\n\tif 'a' in string:\n\t\tresult.append(string.lower())", ["map()", "filter()"]
+"result = []\nfor item in items:\n\tif item.isValid:\n\t\tresult.append(item.method())", ["map()", "filter()"]
+"result = []\nfor obj in objs:\n\tif obj.isReady:\n\t\tresult.append(transform(obj))", ["map()", "filter()"]
+"result = []\nfor y in ys:\n\tif y != 0:\n\t\tresult.append(y4)", ["map()", "filter()"]
+"result = []\nfor list in lists:\n\tfor num in list:\n\t\tresult.append(num)", ["flatMap()"]
+"result = []\nfor list in lists:\n\tfor str in list:\n\t\tresult.append(str.upper())", ["flatMap()"]
+"result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ["flatMap()"]
+"result = []\nfor list in lists:\n\tfor item in list:\n\t\tresult.append(func(item))", ["flatMap()"]
+"result = []\nfor list in lists:\n\tfor elem in list:\n\t\tresult.append(elem2)", ["flatMap()"]
+"result = 0\nfor num in numbers:\n\tresult += num", ["sum()"]
+"result = 0\nfor num in nums:\n\tresult += num", ["sum()"]
+"result = 0\nfor value in values:\n\tresult += value", ["sum()"]
+"result = 0\nfor item in iterable:\n\tresult += item.value", ["sum()"]
+"count = 0\nfor num in numbers:\n\tcount += 1", ["count()"]
+"count = 0\nfor str in strings:\n\tcount += 1", ["count()"]
+"count = 0\nfor obj in objects:\n\tcount += 1", ["count()"]
+"count = 0\nfor item in iterable:\n\tcount += 1", ["count()"]
+"count = 0\nfor val in values:\n\tcount += 1", ["count()"]
+"result = []\nfor list in lists:\n\tfor num in list:\n\t\tif num > 10:\n\t\t\tresult.append(num)", ["flatMap()", "filter()"]
+"result = []\nfor list in lists:\n\tfor str in list:\n\t\tif len(str) > 5:\n\t\t\tresult.append(str.upper())", ["flatMap()", "filter()"]
+"result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ["flatMap()", "filter()"]
+"result = []\nfor list in lists:\n\tfor item in list:\n\t\tif item.isValid:\n\t\t\tresult.append(func(item))", ["flatMap()", "filter()"]
+"result = []\nfor list in lists:\n\tfor elem in list:\n\t\tif elem > 0:\n\t\t\tresult.append(elem2)", ["flatMap()", "filter()"]
+"result = 0\nfor num in numbers:\n\tif num > 10:\n\t\tresult += num", ["filter()", "sum()"]
+"result = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tresult += len(str)", ["filter()", "sum()"]
+"result = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tresult += obj.property", ["filter()", "sum()"]
+"count = 0\nfor num in numbers:\n\tif num > 10:\n\t\tcount += 1", ["filter()", "count()"]
+"count = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tcount += 1", ["filter()", "count()"]
+"count = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tcount += 1", ["filter()", "count()"]
+"result = 0\nfor list in lists:\n\tfor num in list:\n\t\tresult += num", ["flatMap()", "sum()"]
+"result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ["flatMap()", "sum()"]
+"count = 0\nfor list in lists:\n\tfor num in list:\n\t\tcount += 1", ["flatMap()", "count()"]
+"count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ["flatMap()", "count()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))", ["join()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))", ["join()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ["join()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))", ["join()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))", ["join()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))", ["filter()", "join()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))", ["filter()", "join()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ["filter()", "join()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))", ["filter()", "join()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))", ["filter()", "join()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))", ["map()", "join()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))", ["map()", "join()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))", ["map()", "join()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))", ["map()", "join()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y**2))", ["map()", "join()"]
+"result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * val", ["join()", "reduce()"]
+"result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age", ["join()", "reduce()"]
+"result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population", ["join()", "reduce()"]
+"result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data)", ["join()", "reduce()"]
+"result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y", ["join()", "reduce()"]
+"result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num / 2)\nresult = sum(result)", ["filter()", "map()", "sum()"]
+"result = []\nfor word in words:\n\tif 'a' in word:\n\t\tresult.append(word.lower())\nresult = ''.join(result)", ["filter()", "map()", "join()"]
+"result = []\nfor item in items:\n\tif item.isActive:\n\t\tresult.append(item.property)\nresult = sum(result)", ["filter()", "map()", "sum()"]
+"result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = len(result)", ["filter()", "map()", "count()"]
+"result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ["filter()", "map()", "reduce()"]
+"result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ["filter()", "map()", "sum()"]
+"result = []\nfor text in texts:\n\tif 'a' in text:\n\t\tresult.append(text.upper())\nresult = ''.join(result)", ["filter()", "map()", "join()"]
+"result = []\nfor entity in entities:\n\tif entity.isActive:\n\t\tresult.append(entity.property)\nresult = len(result)", ["filter()", "map()", "count()"]
+"result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ["filter()", "map()", "reduce()"]
+"result = []\nfor y in ys:\n\tif y > 0:\n\t\tresult.append(y2)\nresult = sum(result)", ["filter()", "map()", "sum()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))\nresult = len(result)", ["join()", "count()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))\nresult = ''.join([str(item) for item in result]", ["join()", "map()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))\nresult = sum([pop for city, pop in result]", ["join()", "map()", "sum()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result]", ["join()", "map()", "reduce()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))\nresult = len(result)", ["join()", "count()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))\nresult = ''.join([str(item) for item in result]", ["filter()", "join()", "map()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))\nresult = sum([age for name, age in result]", ["filter()", "join()", "map()", "sum()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result]", ["filter()", "join()", "map()", "reduce()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))\nresult = len(result)", ["filter()", "join()", "count()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))\nresult = ''.join([str(item) for item in result], ["filter()", "join()", "map()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result]", ["map()", "join()", "sum()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = len(result)", ["map()", "join()", "count()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result]", ["map()", "join()", "reduce()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result]", ["map()", "join()", "sum()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = len(result)", ["map()", "join()", "count()"]
+"result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * val\nresult = result", ["join()", "reduce()"]
+"result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age\nresult = result", ["join()", "reduce()"]
+"result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population\nresult = result", ["join()", "reduce()"]
+"result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data)\nresult = result", ["join()", "reduce()"]
+"result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y\nresult = result", ["join()", "reduce()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result]", ["filter()", "join()", "map()", "sum()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age + 1))\nresult = len(result)", ["filter()", "join()", "map()", "count()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result]", ["filter()", "join()", "map()", "reduce()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result]", ["filter()", "join()", "map()", "sum()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y2))\nresult = len(result)", ["filter()", "join()", "map()", "count()"]
+"result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ["filter()", "join()", "reduce()"]
+"result = 0\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult += len(name) + age\nresult = result", ["filter()", "join()", "reduce()"]
+"result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult += len(city) + population\nresult = result", ["filter()", "join()", "reduce()"]
+"result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult += id + len(data)\nresult = result", ["filter()", "join()", "reduce()"]
+"result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult += x * y\nresult = result", ["filter()", "join()", "reduce()"]
+"result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result]", ["join()", "map()", "sum()"]
+"result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = ''.join([str(item) for item in result]", ["join()", "map()", "join()"]
+"result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = len(result)", ["join()", "map()", "count()"]
+"result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result]", ["join()", "map()", "reduce()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = sum([y for x, y in result]", ["join()", "map()", "sum()"]
+"result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * func(val)\nresult = result", ["join()", "map()", "reduce()"]
+"result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age + 1\nresult = result", ["join()", "map()", "reduce()"]
+"result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population * 2\nresult = result", ["join()", "map()", "reduce()"]
+"result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data.lower())\nresult = result", ["join()", "map()", "reduce()"]
+"result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ["join()", "map()", "reduce()"]
+"result = []\nfor num in numbers:\n\tfor num1 in numbers1:\n\t\tif num % 2 == num1:\n\t\t\tresult.append(num / 2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor word in words:\n\tfor word1 in words1:\n\t\tif 'a' in word and 'b' in word1:\n\t\t\tresult.append(word.lower())\nresult = ''.join(result)", ["join()", "filter()", "map()", "join()"]
+"result = []\nfor item in items:\n\tfor item1 in items1:\n\t\tif item.isActive and item1.isActive:\n\t\t\tresult.append(item.property)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = len(result)", ["join()", "filter()", "map()", "count()"]
+"result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ["join()", "filter()", "map()", "reduce()"]
+"result = []\nfor val in values:\n\tfor val1 in values1:\n\t\tif val % 2 == val1:\n\t\t\tresult.append(val * 2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'a' in text and 'b' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ["join()", "filter()", "map()", "join()"]
+"result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ["join()", "filter()", "map()", "count()"]
+"result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ["join()", "filter()", "map()", "reduce()"]
+"result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > 0 and t > 0:\n\t\t\tresult.append(z2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 == b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ["join()", "filter()", "map()", "join()"]
+"result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ["join()", "filter()", "map()", "count()"]
+"result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ["join()", "filter()", "map()", "reduce()"]
+"result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 != b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' not in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ["join()", "filter()", "map()", "join()"]
+"result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif not entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ["join()", "filter()", "map()", "count()"]
+"result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif not obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ["join()", "filter()", "map()", "reduce()"]
+"result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z < t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ["join()", "filter()", "map()", "sum()"]
+"result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' in text and 'c' not in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ["join()", "filter()", "map()", "join()"]
+"result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and not entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ["join()", "filter()", "map()", "count()"]
+"result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ["join()", "filter()", "map()", "reduce()"]
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)",['map()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)",['filter()']
+"result = 0\nfor num in numbers:\n\tresult += num",['reduce()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)",['flatMap()']
+"result = {}\nfor num in numbers:\n\tresult.setdefault(num % 2, []).append(num)",['groupBy()']
+"result = sorted(numbers)",['sortBy()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)",['union()']
+"result = list(set(numbers))",['distinct()']
+"result = [num for num in numbers]",['collect()']
+"result = numbers[:5]",['take()']
+"result = [num for num in numbers if num in dict1]",['join()']
+"result = len(numbers)",['count()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = len(result)",['map()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = len(result)",['filter()', 'count()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result]",['reduce()', 'collect()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = len(result)",['flatMap()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = sorted(result)",['map()', 'sortBy()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result, result]",['reduce()', 'flatMap()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = sorted(result)",['union()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = list(set(result))",['map()', 'distinct()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = sorted(result)",['flatMap()', 'sortBy()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = list(set(result))",['union()', 'distinct()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = [item for item in result if item in dict1]",['flatMap()', 'join()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = result[:5]",['map()', 'take()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = len(result)",['union()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = sorted(result)",['filter()', 'sortBy()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = result[:5]",['filter()', 'take()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result for _ in range(5)]",['reduce()', 'flatMap()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = list(set(result))\nresult = len(result)",['map()', 'distinct()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = sorted(result)\nresult = [item for item in result if item in dict1]",['filter()', 'sortBy()', 'join()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result, result]\nresult = len(result)",['reduce()', 'flatMap()', 'count()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = sorted(result)\nresult = result[:5]",['flatMap()', 'sortBy()', 'take()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = sorted(result)\nresult = list(set(result))",['map()', 'sortBy()', 'distinct()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = sorted(result)\nresult = [item for item in result if item in dict1]",['flatMap()', 'sortBy()', 'join()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = list(set(result))\nresult = len(result)",['union()', 'distinct()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = list(set(result))\nresult = [item for item in result if item in dict1]",['filter()', 'distinct()', 'join()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = list(set(result))\nresult = len(result)",['flatMap()', 'distinct()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = sorted(result)\nresult = [item for item in result if item in dict1]",['map()', 'sortBy()', 'join()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result for _ in range(5)]\nresult = len(result)",['reduce()', 'flatMap()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = list(set(result))\nresult = result[:5]",['filter()', 'distinct()', 'take()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = list(set(result))\nresult = [item for item in result if item in dict1]",['flatMap()', 'distinct()', 'join()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = list(set(result))\nresult = len(result)",['map()', 'distinct()', 'count()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = sorted(result)\nresult = [item for item in result if item in dict1]",['flatMap()', 'sortBy()', 'join()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = list(set(result))\nresult = len(result)",['union()', 'distinct()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = list(set(result))\nresult = [item for item in result if item in dict1]",['filter()', 'distinct()', 'join()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = list(set(result))\nresult = len(result)",['flatMap()', 'distinct()', 'count()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = sorted(result)\nresult = [item for item in result if item in dict1]",['map()', 'sortBy()', 'join()']
+"result = 0\nfor num in numbers:\n\tresult += num\nresult = [result for _ in range(5)]\nresult = len(result)",['reduce()', 'flatMap()', 'count()']
+"result = []\nfor num in numbers:\n\tif num > 5:\n\t\tresult.append(num)\nresult = list(set(result))\nresult = result[:5]",['filter()', 'distinct()', 'take()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = list(set(result))\nresult = [item for item in result if item in dict1]",['flatMap()', 'distinct()', 'join()']
+"result = []\nfor num in numbers:\n\tresult.append(num * 2)\nresult = list(set(result))\nresult = len(result)",['map()', 'distinct()', 'count()']
+"result = []\nfor sublist in list_of_lists:\n\tfor item in sublist:\n\t\tresult.append(item)\nresult = sorted(result)\nresult = [item for item in result if item in dict1]",['flatMap()', 'sortBy()', 'join()']
+"result = []\nfor num in list1:\n\tresult.append(num)\nfor num in list2:\n\tresult.append(num)\nresult = list(set(result))\nresult = len(result)",['union()', 'distinct()', 'count()']
+("result = []\nfor num in nums:\n\tresult.append(num / 3)", ['map()'])
+("result = []\nfor char in chars:\n\tresult.append(char.upper())", ['map()'])
+("result = []\nfor entity in entities:\n\tresult.append(entity.property)", ['map()'])
+("result = []\nfor val in vals:\n\tresult.append(func(val))", ['map()'])
+("result = []\nfor x in xs:\n\tresult.append(x3)", ['map()'])
+("result = []\nfor val in data:\n\tresult.append(val * 5)", ['map()'])
+("result = []\nfor string in text:\n\tresult.append(string.lower())", ['map()'])
+("result = []\nfor item in items:\n\tresult.append(item.method())", ['map()'])
+("result = []\nfor obj in objs:\n\tresult.append(transform(obj))", ['map()'])
+("result = []\nfor y in ys:\n\tresult.append(y4)", ['map()'])
+("accum = 0\nfor val in vals:\n\taccum += val", ['reduce()'])
+("product = 1\nfor num in nums:\n\tproduct *= num", ['reduce()'])
+("concat = ''\nfor char in chars:\n\tconcat += char", ['reduce()'])
+("result = 0\nfor entity in entities:\n\tresult = func(result, entity)", ['reduce()'])
+("sum_val = 0\nfor item in iterable:\n\tsum_val += item.value", ['reduce()'])
+("total = 0\nfor num in nums:\n\ttotal += num", ['reduce()'])
+("product = 1\nfor val in values:\n\tproduct *= val", ['reduce()'])
+("concat = ''\nfor str in strings:\n\tconcat += str", ['reduce()'])
+("result = 0\nfor obj in objs:\n\tresult = func(result, obj)", ['reduce()'])
+("sum_val = 0\nfor item in items:\n\tsum_val += item.value", ['reduce()'])
+("result = 0\nfor num in nums:\n\tresult += num / 3", ['map()', 'reduce()'])
+("result = ''\nfor char in chars:\n\tresult += char.upper()", ['map()', 'reduce()'])
+("result = 0\nfor entity in entities:\n\tresult += entity.property", ['map()', 'reduce()'])
+("result = 0\nfor val in vals:\n\tresult += func(val)", ['map()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tresult += x3", ['map()', 'reduce()'])
+("result = 0\nfor val in data:\n\tresult += val * 5", ['map()', 'reduce()'])
+("result = ''\nfor string in text:\n\tresult += string.lower()", ['map()', 'reduce()'])
+("result = 0\nfor item in items:\n\tresult += item.method()", ['map()', 'reduce()'])
+("result = 0\nfor obj in objs:\n\tresult += transform(obj)", ['map()', 'reduce()'])
+("result = 0\nfor y in ys:\n\tresult += y4", ['map()', 'reduce()'])
+("result = []\nfor num in nums:\n\tif num > 10:\n\t\tresult.append(num / 3)", ['map()', 'filter()'])
+("result = []\nfor char in chars:\n\tif 'a' <= char <= 'z':\n\t\tresult.append(char.upper())", ['map()', 'filter()'])
+("result = []\nfor entity in entities:\n\tif entity.isActive:\n\t\tresult.append(entity.property)", ['map()', 'filter()'])
+("result = []\nfor val in vals:\n\tif val.isPositive:\n\t\tresult.append(func(val))", ['map()', 'filter()'])
+("result = []\nfor x in xs:\n\tif x != 0:\n\t\tresult.append(x3)", ['map()', 'filter()'])
+("result = []\nfor val in data:\n\tif val > 20:\n\t\tresult.append(val * 5)", ['map()', 'filter()'])
+("result = []\nfor string in text:\n\tif 'a' in string:\n\t\tresult.append(string.lower())", ['map()', 'filter()'])
+("result = []\nfor item in items:\n\tif item.isValid:\n\t\tresult.append(item.method())", ['map()', 'filter()'])
+("result = []\nfor obj in objs:\n\tif obj.isReady:\n\t\tresult.append(transform(obj))", ['map()', 'filter()'])
+("result = []\nfor y in ys:\n\tif y != 0:\n\t\tresult.append(y4)", ['map()', 'filter()'])
+("result = []\nfor list in lists:\n\tfor num in list:\n\t\tresult.append(num)", ['flatMap()'])
+("result = []\nfor list in lists:\n\tfor str in list:\n\t\tresult.append(str.upper())", ['flatMap()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tresult.append(func(item))", ['flatMap()'])
+("result = []\nfor list in lists:\n\tfor elem in list:\n\t\tresult.append(elem2)", ['flatMap()'])
+("result = 0\nfor num in numbers:\n\tresult += num", ['sum()'])
+("result = 0\nfor num in nums:\n\tresult += num", ['sum()'])
+("result = 0\nfor value in values:\n\tresult += value", ['sum()'])
+("result = 0\nfor item in iterable:\n\tresult += item.value", ['sum()'])
+("count = 0\nfor num in numbers:\n\tcount += 1", ['count()'])
+("count = 0\nfor str in strings:\n\tcount += 1", ['count()'])
+("count = 0\nfor obj in objects:\n\tcount += 1", ['count()'])
+("count = 0\nfor item in iterable:\n\tcount += 1", ['count()'])
+("count = 0\nfor val in values:\n\tcount += 1", ['count()'])
+("result = []\nfor list in lists:\n\tfor num in list:\n\t\tif num > 10:\n\t\t\tresult.append(num)", ['flatMap()', 'filter()'])
+("result = []\nfor list in lists:\n\tfor str in list:\n\t\tif len(str) > 5:\n\t\t\tresult.append(str.upper())", ['flatMap()', 'filter()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tif item.isValid:\n\t\t\tresult.append(func(item))", ['flatMap()', 'filter()'])
+("result = []\nfor list in lists:\n\tfor elem in list:\n\t\tif elem > 0:\n\t\t\tresult.append(elem2)", ['flatMap()', 'filter()'])
+("result = 0\nfor num in numbers:\n\tif num > 10:\n\t\tresult += num", ['filter()', 'sum()'])
+("result = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tresult += len(str)", ['filter()', 'sum()'])
+("result = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tresult += obj.property", ['filter()', 'sum()'])
+("count = 0\nfor num in numbers:\n\tif num > 10:\n\t\tcount += 1", ['filter()', 'count()'])
+("count = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tcount += 1", ['filter()', 'count()'])
+("count = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tcount += 1", ['filter()', 'count()'])
+("result = 0\nfor list in lists:\n\tfor num in list:\n\t\tresult += num", ['flatMap()', 'sum()'])
+("result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ['flatMap()', 'sum()'])
+("count = 0\nfor list in lists:\n\tfor num in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))", ['join()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))", ['join()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ['join()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))", ['join()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))", ['join()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))", ['filter()', 'join()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))", ['filter()', 'join()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))", ['filter()', 'join()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))", ['filter()', 'join()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))", ['map()', 'join()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))", ['map()', 'join()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))", ['map()', 'join()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))", ['map()', 'join()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y**2))", ['map()', 'join()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * val", ['join()', 'reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age", ['join()', 'reduce()'])
+("result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population", ['join()', 'reduce()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data)", ['join()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y", ['join()', 'reduce()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * val\nresult = result", ['join()', 'reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age\nresult = result", ['join()', 'reduce()'])
+("result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population\nresult = result", ['join()', 'reduce()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data)\nresult = result", ['join()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y\nresult = result", ['join()', 'reduce()'])
+("result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num / 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor item in items:\n\tif item.isActive:\n\t\tresult.append(item.property)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor y in ys:\n\tif y > 0:\n\t\tresult.append(y2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor word in words:\n\tif 'a' in word:\n\t\tresult.append(word.lower())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = []\nfor text in texts:\n\tif 'a' in text:\n\t\tresult.append(text.upper())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = len(result)", ['filter()', 'map()', 'count()'])
+("result = []\nfor entity in entities:\n\tif entity.isActive:\n\t\tresult.append(entity.property)\nresult = len(result)", ['filter()', 'map()', 'count()'])
+("result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))\nresult = sum([pop for city, pop in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = sum([y for x, y in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['join()', 'map()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * func(val)\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age + 1\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population * 2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data.lower())\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))\nresult = sum([age for name, age in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))\nresult = len(result)", ['filter()', 'join()', 'count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['map()', 'join()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result])", ['map()', 'join()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['map()', 'join()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age + 1))\nresult = len(result)", ['filter()', 'join()', 'map()', 'count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y2))\nresult = len(result)", ['filter()', 'join()', 'map()', 'count()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult += len(name) + age\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult += len(city) + population\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult += id + len(data)\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult += x * y\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()', 'join()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = len(result)", ['join()', 'map()', 'count()'])
+("result = []\nfor num in numbers:\n\tfor num1 in numbers1:\n\t\tif num % 2 == num1:\n\t\t\tresult.append(num / 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor item in items:\n\tfor item1 in items1:\n\t\tif item.isActive and item1.isActive:\n\t\t\tresult.append(item.property)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor val in values:\n\tfor val1 in values1:\n\t\tif val % 2 == val1:\n\t\t\tresult.append(val * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > 0 and t > 0:\n\t\t\tresult.append(z2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 == b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 != b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z < t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor word in words:\n\tfor word1 in words1:\n\t\tif 'a' in word and 'b' in word1:\n\t\t\tresult.append(word.lower())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'a' in text and 'b' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' not in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' in text and 'c' not in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif not entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and not entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif not obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and not entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = ''\nfor string in text:\n\tresult += string.lower()", ['map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor val in data:\n\tresult.append(val * 5)", ['map()'])
+("result = []\nfor word in words:\n\tfor word1 in words1:\n\t\tif 'a' in word and 'b' in word1:\n\t\t\tresult.append(word.lower())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor num in nums:\n\tresult.append(num / 3)", ['map()'])
+("result = ''\nfor string in text:\n\tresult += string.lower()", ['map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tif item.isValid:\n\t\t\tresult.append(func(item))", ['flatMap()', 'filter()'])
+("count = 0\nfor obj in objects:\n\tcount += 1", ['count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor char in chars:\n\tif 'a' <= char <= 'z':\n\t\tresult.append(char.upper())", ['map()', 'filter()'])
+("result = []\nfor val in data:\n\tif val > 20:\n\t\tresult.append(val * 5)", ['map()', 'filter()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))", ['join()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))", ['filter()', 'join()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y", ['join()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))\nresult = sum([age for name, age in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = 0\nfor item in iterable:\n\tresult += item.value", ['sum()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))", ['map()', 'join()'])
+("sum_val = 0\nfor item in items:\n\tsum_val += item.value", ['reduce()'])
+("result = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tresult += len(str)", ['filter()', 'sum()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and not entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor list in lists:\n\tfor num in list:\n\t\tif num > 10:\n\t\t\tresult.append(num)", ['flatMap()', 'filter()'])
+("result = []\nfor obj in objs:\n\tresult.append(transform(obj))", ['map()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tresult += len(str)", ['filter()', 'sum()'])
+("concat = ''\nfor char in chars:\n\tconcat += char", ['reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['map()', 'join()', 'sum()'])
+("result = 0\nfor y in ys:\n\tresult += y4", ['map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()'])
+("result = []\nfor item in items:\n\tif item.isValid:\n\t\tresult.append(item.method())", ['map()', 'filter()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))\nresult = sum([pop for city, pop in result])", ['join()', 'map()', 'sum()'])
+("accum = 0\nfor val in vals:\n\taccum += val", ['reduce()'])
+("result = []\nfor list in lists:\n\tfor num in list:\n\t\tresult.append(num)", ['flatMap()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))\nresult = sum([age for name, age in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))", ['join()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = sum([y for x, y in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))", ['filter()', 'join()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age + 1\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = 0\nfor num in numbers:\n\tresult += num", ['sum()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['map()', 'join()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()', 'join()'])
+("result = []\nfor obj in objs:\n\tif obj.isReady:\n\t\tresult.append(transform(obj))", ['map()', 'filter()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['join()', 'map()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result])", ['map()', 'join()', 'sum()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor char in chars:\n\tresult.append(char.upper())", ['map()'])
+("result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor num in nums:\n\tif num > 10:\n\t\tresult.append(num / 3)", ['map()', 'filter()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))", ['map()', 'join()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor y in ys:\n\tif y > 0:\n\t\tresult.append(y2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor val in vals:\n\tif val.isPositive:\n\t\tresult.append(func(val))", ['map()', 'filter()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult += x * y\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()', 'join()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age + 1\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor item in iterable:\n\tresult += item.value", ['sum()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and not entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor x in xs:\n\tif x != 0:\n\t\tresult.append(x3)", ['map()', 'filter()'])
+("result = 0\nfor entity in entities:\n\tresult = func(result, entity)", ['reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ['join()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))", ['filter()', 'join()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))", ['join()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult += len(name) + age\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor num in nums:\n\tif num > 10:\n\t\tresult.append(num / 3)", ['map()', 'filter()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ['join()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))", ['map()', 'join()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif not entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' in text and 'c' not in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif not entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = 0\nfor num in nums:\n\tresult += num / 3", ['map()', 'reduce()'])
+("result = []\nfor num in nums:\n\tif num > 10:\n\t\tresult.append(num / 3)", ['map()', 'filter()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 == b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' not in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = 0\nfor obj in objs:\n\tresult += transform(obj)", ['map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tresult += len(str)", ['filter()', 'sum()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult += id + len(data)\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = 0\nfor num in nums:\n\tresult += num", ['sum()'])
+("result = []\nfor val in data:\n\tresult.append(val * 5)", ['map()'])
+("result = []\nfor list in lists:\n\tfor str in list:\n\t\tif len(str) > 5:\n\t\t\tresult.append(str.upper())", ['flatMap()', 'filter()'])
+("result = 0\nfor entity in entities:\n\tresult = func(result, entity)", ['reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age\nresult = result", ['join()', 'reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y2))\nresult = sum([y for x, y in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor item in items:\n\tif item.isValid:\n\t\tresult.append(item.method())", ['map()', 'filter()'])
+("result = []\nfor entity in entities:\n\tif entity.isActive:\n\t\tresult.append(entity.property)\nresult = len(result)", ['filter()', 'map()', 'count()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ['join()'])
+("result = 0\nfor num in nums:\n\tresult += num / 3", ['map()', 'reduce()'])
+("count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))", ['map()', 'join()'])
+("result = []\nfor entity in entities:\n\tresult.append(entity.property)", ['map()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z < t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor text in texts:\n\tif 'a' in text:\n\t\tresult.append(text.upper())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = []\nfor text in texts:\n\tif 'a' in text:\n\t\tresult.append(text.upper())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor elem in list:\n\t\tresult.append(elem2)", ['flatMap()'])
+("result = []\nfor item in items:\n\tfor item1 in items1:\n\t\tif item.isActive and item1.isActive:\n\t\t\tresult.append(item.property)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = len(result)", ['join()', 'map()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif not entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = 0\nfor entity in entities:\n\tresult = func(result, entity)", ['reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > 0 and t > 0:\n\t\t\tresult.append(z2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age\nresult = result", ['join()', 'reduce()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 != b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("count = 0\nfor num in numbers:\n\tcount += 1", ['count()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))\nresult = sum([pop for city, pop in result])", ['join()', 'map()', 'sum()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age", ['join()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))", ['map()', 'join()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data)\nresult = result", ['join()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))", ['join()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))\nresult = len(result)", ['join()', 'count()'])
+("count = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tcount += 1", ['filter()', 'count()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))\nresult = len(result)", ['filter()', 'join()', 'count()'])
+("count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = 0\nfor str in strings:\n\tif 'a' in str:\n\t\tresult += len(str)", ['filter()', 'sum()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif not entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num / 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor val in vals:\n\tif val.isPositive:\n\t\tresult.append(func(val))", ['map()', 'filter()'])
+("result = 0\nfor x in xs:\n\tresult += x3", ['map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor num in list:\n\t\tif num > 10:\n\t\t\tresult.append(num)", ['flatMap()', 'filter()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))\nresult = sum([pop for city, pop in result])", ['join()', 'map()', 'sum()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * func(val)\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ['join()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = 0\nfor obj in objs:\n\tresult += transform(obj)", ['map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))", ['map()', 'join()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tif item.isValid:\n\t\t\tresult.append(func(item))", ['flatMap()', 'filter()'])
+("count = 0\nfor num in numbers:\n\tif num > 10:\n\t\tcount += 1", ['filter()', 'count()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()', 'join()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age", ['join()', 'reduce()'])
+("result = 0\nfor val in data:\n\tresult += val * 5", ['map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tif x != 0:\n\t\tresult.append(x3)", ['map()', 'filter()'])
+("result = []\nfor item in items:\n\tfor item1 in items1:\n\t\tif item.isActive and item1.isActive:\n\t\t\tresult.append(item.property)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor val in data:\n\tif val > 20:\n\t\tresult.append(val * 5)", ['map()', 'filter()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor text in texts:\n\tif 'a' in text:\n\t\tresult.append(text.upper())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = []\nfor y in ys:\n\tif y != 0:\n\t\tresult.append(y4)", ['map()', 'filter()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))\nresult = len(result)", ['filter()', 'join()', 'count()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor word in words:\n\tif 'a' in word:\n\t\tresult.append(word.lower())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("concat = ''\nfor char in chars:\n\tconcat += char", ['reduce()'])
+("result = 0\nfor item in iterable:\n\tresult += item.value", ['sum()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))", ['map()', 'join()'])
+("result = []\nfor list in lists:\n\tfor str in list:\n\t\tresult.append(str.upper())", ['flatMap()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult += len(name) + age\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor entity in entities:\n\tif entity.isActive:\n\t\tresult.append(entity.property)\nresult = len(result)", ['filter()', 'map()', 'count()'])
+("count = 0\nfor str in strings:\n\tcount += 1", ['count()'])
+("result = []\nfor item in items:\n\tif item.isActive:\n\t\tresult.append(item.property)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("product = 1\nfor num in nums:\n\tproduct *= num", ['reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult += len(name) + age\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 == b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))", ['filter()', 'join()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y2))\nresult = len(result)", ['filter()', 'join()', 'map()', 'count()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['map()', 'join()', 'reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))", ['join()'])
+("result = []\nfor num in numbers:\n\tfor num1 in numbers1:\n\t\tif num % 2 == num1:\n\t\t\tresult.append(num / 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("result = 0\nfor obj in objs:\n\tresult += transform(obj)", ['map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))", ['join()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor obj in objs:\n\tresult.append(transform(obj))", ['map()'])
+("concat = ''\nfor str in strings:\n\tconcat += str", ['reduce()'])
+("result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tresult += len(city) + population", ['join()', 'reduce()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' not in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tresult += obj.property", ['filter()', 'sum()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor list in lists:\n\tfor num in list:\n\t\tresult += num", ['flatMap()', 'sum()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult += id + len(data)\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor num in numbers:\n\tresult += num", ['sum()'])
+("result = 0\nfor y in ys:\n\tresult += y4", ['map()', 'reduce()'])
+("result = 0\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult += len(city) + population\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor val in data:\n\tif val > 20:\n\t\tresult.append(val * 5)", ['map()', 'filter()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))", ['join()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tif item.isValid:\n\t\t\tresult.append(func(item))", ['flatMap()', 'filter()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))", ['filter()', 'join()'])
+("result = []\nfor obj in objs:\n\tif obj.isReady:\n\t\tresult.append(transform(obj))", ['map()', 'filter()'])
+("result = []\nfor val in values:\n\tfor val1 in values1:\n\t\tif val % 2 == val1:\n\t\t\tresult.append(val * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult += x * y\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor val in vals:\n\tif val.isPositive:\n\t\tresult.append(func(val))", ['map()', 'filter()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = 0\nfor value in values:\n\tresult += value", ['sum()'])
+("result = []\nfor item in items:\n\tif item.isActive:\n\t\tresult.append(item.property)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor entity in entities:\n\tresult.append(entity.property)", ['map()'])
+("result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ['flatMap()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'sum()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor val in data:\n\tresult.append(val * 5)", ['map()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult += id + len(data)\nresult = result", ['filter()', 'join()', 'reduce()'])
+("sum_val = 0\nfor item in items:\n\tsum_val += item.value", ['reduce()'])
+("count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("count = 0\nfor str in strings:\n\tcount += 1", ['count()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor num in nums:\n\tresult.append(num / 3)", ['map()'])
+("result = 0\nfor y in ys:\n\tresult += y4", ['map()', 'reduce()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 != b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor num in list:\n\t\tif num > 10:\n\t\t\tresult.append(num)", ['flatMap()', 'filter()'])
+("product = 1\nfor val in values:\n\tproduct *= val", ['reduce()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * func(val)\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = 0\nfor item in items:\n\tresult += item.method()", ['map()', 'reduce()'])
+("result = []\nfor y in ys:\n\tif y > 0:\n\t\tresult.append(y2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))", ['join()'])
+("result = 0\nfor num in numbers:\n\tresult += num", ['sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult.append((id, data))", ['filter()', 'join()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' not in text and 'c' in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['join()', 'map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y2))\nresult = len(result)", ['filter()', 'join()', 'map()', 'count()'])
+("result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num / 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor char in chars:\n\tif 'a' <= char <= 'z':\n\t\tresult.append(char.upper())", ['map()', 'filter()'])
+("result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ['flatMap()', 'sum()'])
+("result = []\nfor val in values:\n\tfor val1 in values1:\n\t\tif val % 2 == val1:\n\t\t\tresult.append(val * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor char in chars:\n\tresult.append(char.upper())", ['map()'])
+("result = 0\nfor item in iterable:\n\tresult += item.value", ['sum()'])
+("result = 0\nfor y in ys:\n\tresult += y4", ['map()', 'reduce()'])
+("result = 0\nfor num in nums:\n\tresult += num", ['sum()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult += key * val\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor x in xs:\n\tif x != 0:\n\t\tresult.append(x3)", ['map()', 'filter()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))", ['join()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 != b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("accum = 0\nfor val in vals:\n\taccum += val", ['reduce()'])
+("result = []\nfor string in text:\n\tresult.append(string.lower())", ['map()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = 0\nfor obj in objs:\n\tresult += transform(obj)", ['map()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))", ['map()', 'join()'])
+("result = []\nfor y in ys:\n\tif y != 0:\n\t\tresult.append(y4)", ['map()', 'filter()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y", ['join()', 'reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))", ['join()'])
+("result = []\nfor y in ys:\n\tif y > 0:\n\t\tresult.append(y2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age + 1))\nresult = len(result)", ['filter()', 'join()', 'map()', 'count()'])
+("concat = ''\nfor str in strings:\n\tconcat += str", ['reduce()'])
+("result = []\nfor string in text:\n\tif 'a' in string:\n\t\tresult.append(string.lower())", ['map()', 'filter()'])
+("result = 0\nfor num in numbers:\n\tif num > 10:\n\t\tresult += num", ['filter()', 'sum()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * val", ['join()', 'reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result])", ['map()', 'join()', 'sum()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))", ['join()'])
+("accum = 0\nfor val in vals:\n\taccum += val", ['reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: a*b, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = 0\nfor value in values:\n\tresult += value", ['sum()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > 0 and t > 0:\n\t\t\tresult.append(z2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = 0\nfor obj in objs:\n\tresult += transform(obj)", ['map()', 'reduce()'])
+("result = []\nfor string in text:\n\tresult.append(string.lower())", ['map()'])
+("result = []\nfor obj in objs:\n\tif obj.isReady:\n\t\tresult.append(transform(obj))", ['map()', 'filter()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))", ['join()'])
+("result = []\nfor obj in objects:\n\tif obj.isValid:\n\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tresult.append(func(item))", ['flatMap()'])
+("result = []\nfor string in text:\n\tif 'a' in string:\n\t\tresult.append(string.lower())", ['map()', 'filter()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult += len(name) + age\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = 0\nfor value in values:\n\tresult += value", ['sum()'])
+("result = []\nfor item in items:\n\tfor item1 in items1:\n\t\tif item.isActive and item1.isActive:\n\t\t\tresult.append(item.property)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("count = 0\nfor num in numbers:\n\tcount += 1", ['count()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tif item.isValid:\n\t\t\tresult.append(func(item))", ['flatMap()', 'filter()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 == b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("sum_val = 0\nfor item in items:\n\tsum_val += item.value", ['reduce()'])
+("result = []\nfor x in xs:\n\tif x > 0:\n\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['filter()', 'map()', 'reduce()'])
+("result = []\nfor item in items:\n\tif item.isActive:\n\t\tresult.append(item.property)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor text in texts:\n\tfor text1 in texts1:\n\t\tif 'b' in text and 'c' not in text1:\n\t\t\tresult.append(text.upper())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = 0\nfor obj in objs:\n\tresult = func(result, obj)", ['reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y**2))", ['map()', 'join()'])
+("result = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tresult += obj.property", ['filter()', 'sum()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = 0\nfor y in ys:\n\tresult += y4", ['map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['map()', 'join()', 'reduce()'])
+("sum_val = 0\nfor item in items:\n\tsum_val += item.value", ['reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = 0\nfor key in keys:\n\tfor val in values:\n\t\tresult += key * val", ['join()', 'reduce()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tif id != data:\n\t\t\tresult += id + len(data)\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor id in ids:\n\tfor data in datas:\n\t\tresult += id + len(data)\nresult = result", ['join()', 'reduce()'])
+("result = 0\nfor num in nums:\n\tresult += num", ['sum()'])
+("product = 1\nfor num in nums:\n\tproduct *= num", ['reduce()'])
+("result = []\nfor val in values:\n\tfor val1 in values1:\n\t\tif val % 2 == val1:\n\t\t\tresult.append(val * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = 0\nfor obj in objects:\n\tif obj.isActive:\n\t\tresult += obj.property", ['filter()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = sum([len(str(item)) for item in result])", ['map()', 'join()', 'sum()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif not obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("product = 1\nfor val in values:\n\tproduct *= val", ['reduce()'])
+("count = 0\nfor item in iterable:\n\tcount += 1", ['count()'])
+("count = 0\nfor val in values:\n\tcount += 1", ['count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['map()', 'join()', 'sum()'])
+("result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num / 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("sum_val = 0\nfor item in iterable:\n\tsum_val += item.value", ['reduce()'])
+("result = []\nfor list in lists:\n\tfor str in list:\n\t\tresult.append(str.upper())", ['flatMap()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population))", ['join()'])
+("result = []\nfor val in data:\n\tif val > 20:\n\t\tresult.append(val * 5)", ['map()', 'filter()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y**2))", ['map()', 'join()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y2\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tresult.append(obj.property)", ['flatMap()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = []\nfor item in items:\n\tif item.isValid:\n\t\tresult.append(item.method())", ['map()', 'filter()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = reduce(lambda a, b: a+b, [pop for city, pop in result])", ['map()', 'join()', 'reduce()'])
+("result = []\nfor y in ys:\n\tif y != 0:\n\t\tresult.append(y4)", ['map()', 'filter()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))", ['join()'])
+("result = []\nfor val in data:\n\tresult.append(val * 5)", ['map()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age))\nresult = ''.join([str(item) for item in result])", ['join()', 'map()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))", ['map()', 'join()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age\nresult = result", ['join()', 'reduce()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))\nresult = sum([val for key, val in result])", ['join()', 'map()', 'sum()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))\nresult = len(result)", ['join()', 'count()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age + 1\nresult = result", ['join()', 'map()', 'reduce()'])
+("accum = 0\nfor val in vals:\n\taccum += val", ['reduce()'])
+("result = 0\nfor obj in objs:\n\tresult = func(result, obj)", ['reduce()'])
+("result = []\nfor val in values:\n\tfor val1 in values1:\n\t\tif val % 2 == val1:\n\t\t\tresult.append(val * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))", ['map()', 'join()'])
+("count = 0\nfor item in iterable:\n\tcount += 1", ['count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor text in texts:\n\tif 'a' in text:\n\t\tresult.append(text.upper())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = 0\nfor list in lists:\n\tfor num in list:\n\t\tresult += num", ['flatMap()', 'sum()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, func(val)))", ['map()', 'join()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tresult += x * y\nresult = result", ['join()', 'reduce()'])
+("result = []\nfor num in numbers:\n\tif num % 2 == 0:\n\t\tresult.append(num / 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = 0\nfor name in names:\n\tfor age in ages:\n\t\tresult += len(name) + age + 1\nresult = result", ['join()', 'map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult.append((x, y))\nresult = ''.join([str(item) for item in result])", ['filter()', 'join()', 'map()'])
+("result = []\nfor item in items:\n\tfor item1 in items1:\n\t\tif item.isActive and item1.isActive:\n\t\t\tresult.append(item.property)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['join()', 'map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor val in vals:\n\tresult.append(func(val))", ['map()'])
+("result = 0\nfor num in nums:\n\tresult += num", ['sum()'])
+("sum_val = 0\nfor item in items:\n\tsum_val += item.value", ['reduce()'])
+("sum_val = 0\nfor item in iterable:\n\tsum_val += item.value", ['reduce()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif not obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor x in xs:\n\tif x != 0:\n\t\tresult.append(x3)", ['map()', 'filter()'])
+("result = 0\nfor num in numbers:\n\tif num > 10:\n\t\tresult += num", ['filter()', 'sum()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))", ['join()'])
+("result = []\nfor word in words:\n\tif 'a' in word:\n\t\tresult.append(word.lower())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("result = []\nfor list in lists:\n\tfor elem in list:\n\t\tif elem > 0:\n\t\t\tresult.append(elem2)", ['flatMap()', 'filter()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ['flatMap()', 'sum()'])
+("count = 0\nfor str in strings:\n\tcount += 1", ['count()'])
+("result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ['flatMap()', 'sum()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isNotActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor num in numbers:\n\tfor num1 in numbers1:\n\t\tif num % 2 == num1:\n\t\t\tresult.append(num / 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor char in chars:\n\tresult.append(char.upper())", ['map()'])
+("result = []\nfor list in lists:\n\tfor elem in list:\n\t\tresult.append(elem2)", ['flatMap()'])
+("result = 0\nfor x in xs:\n\tresult += x3", ['map()', 'reduce()'])
+("result = 0\nfor list in lists:\n\tfor num in list:\n\t\tresult += num", ['flatMap()', 'sum()'])
+("total = 0\nfor num in nums:\n\ttotal += num", ['reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = 0\nfor item in iterable:\n\tresult += item.value", ['sum()'])
+("result = []\nfor val in vals:\n\tresult.append(func(val))", ['map()'])
+("result = []\nfor word in words:\n\tfor word1 in words1:\n\t\tif 'a' in word and 'b' in word1:\n\t\t\tresult.append(word.lower())\nresult = ''.join(result)", ['join()', 'filter()', 'map()', 'join()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age))", ['filter()', 'join()'])
+("result = 0\nfor entity in entities:\n\tresult += entity.property", ['map()', 'reduce()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor word in words:\n\tif 'a' in word:\n\t\tresult.append(word.lower())\nresult = ''.join(result)", ['filter()', 'map()', 'join()'])
+("concat = ''\nfor str in strings:\n\tconcat += str", ['reduce()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tresult.append((x, y))\nresult = len(result)", ['join()', 'count()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tresult.append((city, population * 2))\nresult = len(result)", ['join()', 'map()', 'count()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult += x * y\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = 0\nfor list in lists:\n\tfor str in list:\n\t\tresult += len(str)", ['flatMap()', 'sum()'])
+("result = []\nfor list in lists:\n\tfor item in list:\n\t\tresult.append(func(item))", ['flatMap()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif obj.isValid and not obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = 0\nfor x in xs:\n\tfor y in ys:\n\t\tif x != y:\n\t\t\tresult += x * y\nresult = result", ['filter()', 'join()', 'reduce()'])
+("result = []\nfor char in chars:\n\tresult.append(char.upper())", ['map()'])
+("result = []\nfor x in xs:\n\tfor y in ys:\n\t\tif x > 0 and y > 0:\n\t\t\tresult.append(x2)\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['filter()', 'join()', 'map()', 'reduce()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tresult.append((key, val))", ['join()'])
+("result = []\nfor num in nums:\n\tresult.append(num / 3)", ['map()'])
+("result = []\nfor city in cities:\n\tfor population in populations:\n\t\tif city != population:\n\t\t\tresult.append((city, population))", ['filter()', 'join()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 != b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor obj in objects:\n\tfor obj1 in objects1:\n\t\tif not obj.isValid and obj1.isValid:\n\t\t\tresult.append(func(obj))\nresult = reduce(lambda a, b: ab, result)", ['join()', 'filter()', 'map()', 'reduce()'])
+("result = []\nfor obj in objs:\n\tif obj.isReady:\n\t\tresult.append(transform(obj))", ['map()', 'filter()'])
+("count = 0\nfor list in lists:\n\tfor str in list:\n\t\tcount += 1", ['flatMap()', 'count()'])
+("result = []\nfor entity in entities:\n\tfor entity1 in entities1:\n\t\tif entity.isActive and entity1.isActive:\n\t\t\tresult.append(entity.property)\nresult = len(result)", ['join()', 'filter()', 'map()', 'count()'])
+("product = 1\nfor val in values:\n\tproduct *= val", ['reduce()'])
+("result = []\nfor id in ids:\n\tfor data in datas:\n\t\tresult.append((id, data.lower()))\nresult = reduce(lambda a, b: a+b, [len(str(item)) for item in result])", ['join()', 'map()', 'reduce()'])
+("result = []\nfor a in as:\n\tfor b in bs:\n\t\tif a % 2 > b:\n\t\t\tresult.append(a * 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor list in lists:\n\tfor obj in list:\n\t\tif obj.isActive:\n\t\t\tresult.append(obj.property)", ['flatMap()', 'filter()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))", ['filter()', 'join()'])
+("result = []\nfor list in lists:\n\tfor str in list:\n\t\tif len(str) > 5:\n\t\t\tresult.append(str.upper())", ['flatMap()', 'filter()'])
+("count = 0\nfor obj in objects:\n\tcount += 1", ['count()'])
+("result = []\nfor num in numbers:\n\tfor num1 in numbers1:\n\t\tif num % 2 == num1:\n\t\t\tresult.append(num / 2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor string in text:\n\tif 'a' in string:\n\t\tresult.append(string.lower())", ['map()', 'filter()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tresult.append((name, age + 1))\nresult = len(result)", ['map()', 'join()', 'count()'])
+("result = []\nfor key in keys:\n\tfor val in values:\n\t\tif key == val:\n\t\t\tresult.append((key, val))", ['filter()', 'join()'])
+("result = []\nfor val in values:\n\tif val % 2 == 0:\n\t\tresult.append(val * 2)\nresult = sum(result)", ['filter()', 'map()', 'sum()'])
+("result = []\nfor name in names:\n\tfor age in ages:\n\t\tif name != age:\n\t\t\tresult.append((name, age + 1))\nresult = len(result)", ['filter()', 'join()', 'map()', 'count()'])
+("result = []\nfor z in zs:\n\tfor t in ts:\n\t\tif z > t:\n\t\t\tresult.append(z**2)\nresult = sum(result)", ['join()', 'filter()', 'map()', 'sum()'])
+("result = []\nfor y in ys:\n\tresult.append(y4)", ['map()'])
