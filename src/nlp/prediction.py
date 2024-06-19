@@ -77,14 +77,16 @@ class BertClassifier:
 
 class Top5Predictions:
     def __init__(self):
-        self.classifier = BertClassifier('nlp/model_100000_07_14.h5', 111)
-        data = self.classifier.load_dataset("nlp/latest_class_10000.csv")
+        self.classifier = BertClassifier('F:\\Papers\\IEEE-BigData-2023\\roop_nlp\\src\\nlp\\model_100000_07_14.h5', 111)
+        data = self.classifier.load_dataset("src\\nlp\\latest_class_10000.csv")
         df = self.classifier.preprocess_data(data, 111)
         self.classifier.fit_label(df)
     
     def make_prediction(self, code):
         return self.classifier.predict_top_5_labels(code)
-
+    
+    def make_single_prediction(self, code):
+        return self.classifier.predict_top_class(code)
 # top5 = Top5Predictions()
 # code_snap = "for num in numbers:\
 # count += 1"

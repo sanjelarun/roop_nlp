@@ -4,7 +4,7 @@ from data_models.loop import Loop
 from data_models.operations import Operation
 import keyword
 import tokenize
-import io
+import io,re
 import builtins
 from collections import OrderedDict
 
@@ -23,12 +23,6 @@ def extract_variables_from_node(node):
     else:
         return []
 
-
-
-
-
-
-
 def extract_variable_names_from_operation(op_str):
     """Extract variable names from a given operation string."""
     tokens = tokenize.tokenize(io.BytesIO(op_str.encode('utf-8')).readline)
@@ -38,11 +32,24 @@ def extract_variable_names_from_operation(op_str):
         and not keyword.iskeyword(token.string) 
         and token.string not in dir(builtins)
     ]
+
+def adjust_operations(operations):
+    """Adjust special method calls like str.lower() to use the correct variable."""
+    for operation in operations:
+        method_calls = re.findall(r'str\.(\w+)\(\)', operation.operation_str)
+        for method in method_calls:
+            variable = operation.variables[0]
+            operation.operation_str = operation.operation_str.replace(f'str.{method}()', f"{variable}.{method}()")
+
+def sort_operations_by_line_number(operations):
+    operations.sort(key=lambda x: x.line_number)
+
 def extract_operations(operation_nodes, code):
     """Extracts operations from a list of AST nodes."""
     operations_list = []
 
     for n in operation_nodes:
+        line_number = n.lineno
         # Assignments (e.g., result = num * 5)
         if isinstance(n, ast.Assign):
             for target in n.targets:
@@ -50,46 +57,40 @@ def extract_operations(operation_nodes, code):
                 right_op = ast.get_source_segment(code, n.value).strip()
                 involved_vars_ordered_dict = OrderedDict.fromkeys([left_var] + extract_variables_from_node(n.value))
                 involved_vars = list(involved_vars_ordered_dict.keys())
-                operation = Operation(variables=involved_vars, operation_str=right_op)
+                operation = Operation(variables=involved_vars, operation_str=right_op, line_number=line_number)
                 operations_list.append(operation)
         # Augmented assignments (e.g., a += 1)
-# Augmented assignments (e.g., a += 1)
         elif isinstance(n, ast.AugAssign):
-            print("Found AugAssign")  # Debug print
             target_var = ast.get_source_segment(code, n.target).strip()
             right_op = ast.get_source_segment(code, n.value).strip()
-            
-            # Get the operator directly from the AugAssign node
             op_map = {
                 ast.Add: '+',
                 ast.Sub: '-',
                 ast.Mult: '*',
                 ast.Div: '/',
-                # ... add other operators as needed
             }
             op_segment = op_map.get(type(n.op), None)
             if not op_segment:
-                print(f"Unsupported operator: {type(n.op)}")  # Debug print
                 continue
-            
             expanded_op = target_var + " " + op_segment + " " + right_op  # Expand to non-augmented form
-            involved_vars_ordered_dict = OrderedDict.fromkeys([left_var] + extract_variables_from_node(n.value))
+            involved_vars_ordered_dict = OrderedDict.fromkeys([target_var] + extract_variables_from_node(n.value))
             involved_vars = list(involved_vars_ordered_dict.keys())
-            operation = Operation(variables=involved_vars, operation_str=expanded_op)
+            operation = Operation(variables=involved_vars, operation_str=expanded_op, line_number=line_number)
             operations_list.append(operation)
-
-
         # Function calls (e.g., append, extend)
         elif isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute):
             # Check if the function is 'append' or 'extend'
             if n.func.attr in ["append", "extend"]:
                 operation_inside_call = ast.get_source_segment(code, n.args[0]).strip()
                 involved_vars = extract_variable_names_from_operation(operation_inside_call)
-                operation = Operation(variables=involved_vars, operation_str=operation_inside_call)
+                operation = Operation(variables=involved_vars, operation_str=operation_inside_call,line_number=line_number)
                 operations_list.append(operation)
 
-
+    # Apply the adjustments for special method calls
+    adjust_operations(operations_list)
+    sort_operations_by_line_number(operations_list)
     return operations_list
+
 
 
 
@@ -153,10 +154,23 @@ def extract_conditions_with_astor(node):
                 
     return conditions
 
+def merge_loops(loop1, loop2):
+    """Merge operations of two loops that operate on the same result dataset."""
+    loop1.operations.extend(loop2.operations)
+    loop1.end_line = loop2.end_line
+    loop1.input_datasets.extend(loop2.input_datasets)
+    sort_operations_by_line_number(loop1.operations)
+    loop1.original_code += '\n' + loop2.original_code  # Combine the original code for reference
+    return loop1
+
+from collections import OrderedDict
 
 def extract_loops_from_code_v4(code: str):
     loops = []
     parsed_code = ast.parse(code)
+    
+    dataset_to_loop_map = {}  # Variable to keep track of datasets and their loops
+    dataset_to_code_map = {}  # Variable to keep track of datasets and additional lines of code
     
     class LoopVisitor(ast.NodeVisitor):
         def visit_For(self, node):
@@ -167,18 +181,16 @@ def extract_loops_from_code_v4(code: str):
             result_datasets = extract_result_datasets(node)
             input_datasets = extract_input_datasets(node)
             
-            # Filtering nodes of interest for operation extraction
             operation_nodes = [n for n in ast.walk(node) if isinstance(n, (ast.Assign, ast.AugAssign, ast.Call))]
             
             operations = extract_operations(operation_nodes, code)
             conditions = extract_conditions_with_astor(node)
             
-            loop_obj = Loop(loop_id=len(loops)+1, 
+            loop_obj = Loop(loop_id=len(loops) + 1, 
                             original_code=loop_code, 
                             start_line=start_line, 
                             end_line=end_line)
             
-            # Checking for nested loops and conditions
             for inner_node in node.body:
                 if isinstance(inner_node, ast.For):
                     loop_obj.is_nested = True
@@ -186,13 +198,46 @@ def extract_loops_from_code_v4(code: str):
             loop_obj.input_datasets = input_datasets
             loop_obj.result_datasets = result_datasets
             loop_obj.operations = operations
-            loop_obj.conditions = conditions  # Storing extracted conditions in Loop object
-            loops.append(loop_obj)
+            loop_obj.conditions = conditions
             
-            # This line allows us to handle nested loops
+            merged = False
+            for dataset in result_datasets:
+                if dataset in dataset_to_loop_map:
+                    previous_loop = dataset_to_loop_map[dataset]
+                    merge_loops(previous_loop, loop_obj)
+                    merged = True
+                    break
+            
+            if not merged:
+                loops.append(loop_obj)
+                for dataset in result_datasets:
+                    dataset_to_loop_map[dataset] = loop_obj
+            
             self.generic_visit(node)
+        
+        def visit_Assign(self, node):
+            self.update_dataset_to_code_map(node)
+        
+        def visit_AugAssign(self, node):
+            self.update_dataset_to_code_map(node)
+        
+        def update_dataset_to_code_map(self, node):
+            line = ast.get_source_segment(code, node).strip()
+            line_number = node.lineno
+            target = None
+            if isinstance(node, ast.Assign):
+                target = node.targets[0]
+            elif isinstance(node, ast.AugAssign):
+                target = node.target
+            target_var = ast.get_source_segment(code, target).strip()
+            if target_var in dataset_to_loop_map:
+                loop = dataset_to_loop_map[target_var]
+                loop.original_code += '\n' + line
+                loop.end_line = line_number
     
     visitor = LoopVisitor()
     visitor.visit(parsed_code)
     
     return loops
+
+

@@ -1,18 +1,23 @@
 from pyspark import SparkContext, SparkConf
-def even_counter(numbers):
+
+def get_or_create_spark_context():
+    conf = SparkConf().setAppName('App0').setMaster('local[2]')
+    return SparkContext.getOrCreate(conf)
+
+def even_filter(numbers):
     evens = []
-    conf = SparkConf().setAppName('MyApp').setMaster('local')
-    sc = SparkContext(conf=conf)
+    sc = get_or_create_spark_context()
     numbers_rdd = sc.parallelize(numbers)
+    
     evens = numbers_rdd.filter(lambda num: num % 2 == 0).collect()
     sc.stop()
     return evens
 
 def length_counter(strings):
     lengths = []
-    conf = SparkConf().setAppName('MyApp').setMaster('local')
-    sc = SparkContext(conf=conf)
+    sc = get_or_create_spark_context()
     strings_rdd = sc.parallelize(strings)
+    
     lengths = strings_rdd.map(lambda s: len(s)).collect()
     sc.stop()
     return lengths
